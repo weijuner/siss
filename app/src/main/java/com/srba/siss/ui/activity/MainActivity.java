@@ -17,6 +17,10 @@ public class MainActivity extends BaseActivity<MainPresenter>
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * 基类onCreate调用
+     * @return presenter
+     */
     @Override
     protected MainPresenter onCreatePresenter() {
         return new MainPresenter(this);
