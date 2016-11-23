@@ -41,7 +41,7 @@ public class BasePresenter<V extends BaseView, M extends BaseModel> {
     }
 
     /**
-     * 去取消订阅者
+     * 取消订阅者
      */
     public void unSubscribe() {
         if (mView != null) {
