@@ -2,26 +2,10 @@ package com.srba.siss.bean;
 
 import java.util.List;
 
-/**
- * Created by Nicholas on 2016/10/30.
- */
 
 public class Gank {
 
     private boolean error;
-
-    /**
-     * _id : 58006bb3421aa95dd351b12a
-     * createdAt : 2016-10-14T13:22:59.462Z
-     * desc : 效果超棒的微笑下拉刷新。这是在 SwipeRefreshLayout基础上修改的下拉刷新库。
-     * images : ["http://img.gank.io/616cb9ae-2d42-4f97-a7c9-28c291c7b66f"]
-     * publishedAt : 2016-10-28T11:29:36.510Z
-     * source : web
-     * type : Android
-     * url : https://github.com/songixan/SmileRefresh
-     * used : true
-     * who : null
-     */
 
     private List<Result> results;
 

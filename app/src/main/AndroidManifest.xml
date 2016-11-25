@@ -9,13 +9,26 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MainActivity">
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:theme="@style/AppTheme.Launch"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:label="@string/label_WelActivity"
+            android:name=".ui.activity.WelActivity"
+            android:theme="@style/AppTheme.Launch"/>
+        <activity
+            android:label="@string/label_MainActivity"
+            android:name=".ui.activity.MainActivity"/>
+        <activity
+            android:label="@string/label_LoginActivity"
+            android:name=".ui.activity.LoginActivity"/>
     </application>
 
 </manifest>

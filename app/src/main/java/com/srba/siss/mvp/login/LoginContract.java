@@ -1,10 +1,9 @@
-package com.srba.siss.mvp.main;
+package com.srba.siss.mvp.login;
 
 
 import com.srba.siss.base.BaseModel;
 import com.srba.siss.base.BasePresenter;
 import com.srba.siss.base.BaseView;
-import com.srba.siss.bean.Gank;
 
 import rx.Observable;
 
@@ -19,35 +18,18 @@ import rx.Observable;
  * 2016/11/23       曾维俊               1.0                   1.0
  * 修改原因以及修改内容:
  */
-public interface MainContract {
+public interface LoginContract {
 
     interface View extends BaseView {
-
-        void showDialog();
-
-        void onSucceed(Gank data);
-
-        void onFail(String err);
-
-        void hideDialog();
-
-        void switch2HomePage();
-
-        void switch2Business();
-
-        void switch2Message();
-
-        void switch2Me();
+        void startMainActivity();
 
     }
 
     interface Model extends BaseModel {
-        Observable<Gank> getGank();
+        Observable<String> login(String username,String password);
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {
-        public abstract void getGank();
-
-        public abstract void switchNavigation(int id);
+        public abstract void login(String username,String password);
     }
 }

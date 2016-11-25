@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">siss</string>
+    <string name="app_name">房产交易系统</string>
+    <string name="label_WelActivity">欢迎activity</string>
+    <string name="label_MainActivity">主activity</string>
+    <string name="label_LoginActivity">登录activity</string>
+    <string name="str_homepage">首页</string>
+    <string name="str_businesspage">业务</string>
+    <string name="str_messagepage">消息</string>
+    <string name="str_mepage">我的</string>
+
 </resources>

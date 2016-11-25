@@ -1,6 +1,7 @@
 package com.srba.siss.mvp.main;
 
 
+import com.srba.siss.R;
 import com.srba.siss.bean.Gank;
 
 import rx.Subscriber;
@@ -52,7 +53,28 @@ public class MainPresenter extends MainContract.Presenter {
                     }
                 });
 
-
         addSubscribe(subscribe);
+    }
+
+    @Override
+    public void switchNavigation(int id) {
+        switch (id) {
+            case R.id.graiv_home:
+            case R.id.gratv_home:
+                mView.switch2HomePage();
+                break;
+            case R.id.graiv_business:
+            case R.id.gratv_business:
+                mView.switch2Business();
+                break;
+            case R.id.graiv_message:
+            case R.id.gratv_message:
+                mView.switch2Message();
+                break;
+            case R.id.graiv_me:
+            case R.id.gratv_me:
+                mView.switch2Me();
+                break;
+        }
     }
 }

@@ -11,14 +11,25 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
- * Created by Nicholas on 2016/10/30.
+ * 作者:  曾维俊
+ * 版本:  1.0
+ * 日期:  2016/11/23 17:31
+ * 描述:  Api引擎类z用来生成api服务实例
+ * 修改历史:
+ * 日期         	修改人        		版本        	      描述
+ * -----------------------------------------------------------------------------------
+ * 2016/11/23       曾维俊               1.0                   1.0
+ * 修改原因以及修改内容:
  */
-
 public class ApiEngine {
 
     private volatile static ApiEngine apiEngine;
+    /*
+    retrofit实例
+     */
     private Retrofit retrofit;
 
     private ApiEngine() {
@@ -42,14 +53,19 @@ public class ApiEngine {
                 .build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(ApiService.BASE_URL)
+                .baseUrl(ApiService.HOST)
                 .client(client)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 
     }
 
+    /**
+     * 初始化自身单例模式
+     * @return
+     */
     public static ApiEngine getInstance() {
         if (apiEngine == null) {
             synchronized (ApiEngine.class) {
@@ -61,6 +77,10 @@ public class ApiEngine {
         return apiEngine;
     }
 
+    /**
+     * 创造一个api服务
+     * @return
+     */
     public ApiService getApiService() {
         return retrofit.create(ApiService.class);
     }
