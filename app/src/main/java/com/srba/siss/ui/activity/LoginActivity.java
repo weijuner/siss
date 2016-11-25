@@ -7,6 +7,9 @@ import android.widget.Button;
 
 import com.srba.siss.R;
 import com.srba.siss.base.BaseMvpActivity;
+import com.srba.siss.greendao.GreenDaoManager;
+import com.srba.siss.greendao.dao.UserDao;
+import com.srba.siss.greendao.entity.User;
 import com.srba.siss.mvp.login.LoginContract;
 import com.srba.siss.mvp.login.LoginPresenter;
 
@@ -32,6 +35,9 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        UserDao userDao = GreenDaoManager.getInstance().getSession().getUserDao();
+        User user = new User(null, "zengwj");
+        userDao.insert(user);
     }
 
     @Override
@@ -45,13 +51,13 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
         switch (view.getId()) {
             case R.id.btn_login:
                 //请求接口
-                mPresenter.login("430521199207103331","103331");
+                mPresenter.login("430521199207103331", "103331");
                 break;
         }
     }
 
     @Override
     public void startMainActivity() {
-        startActivity(new Intent(mActivity,MainActivity.class));
+        startActivity(new Intent(mActivity, MainActivity.class));
     }
 }

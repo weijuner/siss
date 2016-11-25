@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.3"
@@ -17,6 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+greendao {
+    schemaVersion 1
+    daoPackage 'com.srba.siss.greendao.dao'
+    targetGenDir 'src/main/java'
 }
 
 dependencies {
@@ -48,6 +53,8 @@ dependencies {
     //view注入
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-    //原型imageview
+    //圆形imageview
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    //
+    compile 'org.greenrobot:greendao:3.2.0'
 }
