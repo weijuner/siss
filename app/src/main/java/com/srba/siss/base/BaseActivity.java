@@ -3,11 +3,12 @@ package com.srba.siss.base;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.support.annotation.LayoutRes;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.zhy.autolayout.AutoLayoutActivity;
 
 import butterknife.ButterKnife;
 
@@ -22,7 +23,7 @@ import butterknife.ButterKnife;
  * 2016/11/24       曾维俊               1.0                   1.0
  * 修改原因以及修改内容:
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AutoLayoutActivity {
     public Activity mActivity;
 
     @Override
@@ -45,7 +46,6 @@ public class BaseActivity extends AppCompatActivity {
         super.setContentView(view, params);
         ButterKnife.bind(this);
         mActivity = this;
-
     }
 
 

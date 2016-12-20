@@ -34,7 +34,6 @@ public class LoginModel implements LoginContract.Model {
 
         RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json;charset=UTF-8"),strEntity);
 
-
         return ApiEngine.getInstance().getApiService()
                 .login(body)
                 .compose(RxSchedulers.<String>switchThread());

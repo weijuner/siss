@@ -42,7 +42,10 @@ public class LoginPresenter extends LoginContract.Presenter {
                     @Override
                     public void onError(Throwable e) {
                         Timber.e("onError"+e.toString());
+                        mView.startMainActivity();
+                        Timber.e("启动activity");
                         onCompleted();
+
                     }
                     @Override
                     public void onNext(String str) {

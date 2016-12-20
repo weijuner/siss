@@ -25,6 +25,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import timber.log.Timber;
 
 /**
  * 作者:  曾维俊
@@ -137,21 +138,25 @@ public class MainActivity extends BaseMvpActivity<MainPresenter>
 
     @Override
     public void switch2HomePage() {
+        Timber.e("首页");
         mViewPager.setCurrentItem(0, false);
     }
 
     @Override
     public void switch2Business() {
+        Timber.e("业务");
         mViewPager.setCurrentItem(1, false);
     }
 
     @Override
     public void switch2Message() {
+        Timber.e("消息");
         mViewPager.setCurrentItem(2, false);
     }
 
     @Override
     public void switch2Me() {
+        Timber.e("我的");
         mViewPager.setCurrentItem(3, false);
     }
 

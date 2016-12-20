@@ -1,5 +1,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,18 +8,19 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="100px"
         android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="150px"
+        android:layout_height="150px"
         android:src="@mipmap/ic_launcher"
-        app:civ_border_width="2dp"
+        app:civ_border_width="0dp"
         app:civ_border_color="#FF000000"/>
 
     <LinearLayout
-        android:layout_margin="10dp"
+        android:layout_marginTop="100px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -27,13 +29,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_margin="10dp"
+        android:layout_marginTop="10px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -42,21 +47,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <CheckBox
+        android:layout_margin="20px"
         android:text="已阅知并同意《深圳房地产中介协会综合服务系统使用协议》"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/checkBox"/>
 
     <Button
-        android:layout_margin="10dp"
+        android:layout_marginTop="80px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
         android:text="登录"
+        android:background="@drawable/btn_login_selector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_login"/>
+    <RelativeLayout
+        android:layout_marginTop="40px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/colorPrimary"
+            android:text="忘记密码"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="没有账号前往siss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/tv_signin"
+            android:layout_toStartOf="@+id/tv_signin"/>
+
+        <TextView
+            android:id="@+id/tv_signin"
+            android:textColor="@color/colorPrimary"
+            android:text="立即注册"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
 </LinearLayout>

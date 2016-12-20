@@ -7,9 +7,6 @@ import android.widget.Button;
 
 import com.srba.siss.R;
 import com.srba.siss.base.BaseMvpActivity;
-import com.srba.siss.greendao.GreenDaoManager;
-import com.srba.siss.greendao.dao.UserDao;
-import com.srba.siss.greendao.entity.User;
 import com.srba.siss.mvp.login.LoginContract;
 import com.srba.siss.mvp.login.LoginPresenter;
 
@@ -35,9 +32,12 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        UserDao userDao = GreenDaoManager.getInstance().getSession().getUserDao();
+      /*  UserDao userDao = GreenDaoManager.getInstance().getSession().getUserDao();
         User user = new User(null, "zengwj");
-        userDao.insert(user);
+        userDao.insert(user);*/
+       /* Glide.with(this).load(R.mipmap.ic_launcher)
+                .bitmapTransform(new CropCircleTransformation(this))
+                .into((ImageView) findViewById(R.id.image));*/
     }
 
     @Override
