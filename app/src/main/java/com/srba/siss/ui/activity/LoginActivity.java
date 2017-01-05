@@ -51,7 +51,8 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
         switch (view.getId()) {
             case R.id.btn_login:
                 //请求接口
-                mPresenter.login("430521199207103331", "103331");
+                //mPresenter.login("430521199207103331", "103331");
+                startActivity(new Intent(mActivity, MainActivity.class));
                 break;
         }
     }

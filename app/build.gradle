@@ -11,6 +11,14 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+         //   abiFilters "armeabi-v7a", "x86_64"
+        }
+        manifestPlaceholders = [
+                GETUI_APP_ID : "zYkiMVid2E9CtxLQKToeA8",
+                GETUI_APP_KEY : "F3qbh67nTX7OZf5c51aMaA",
+                GETUI_APP_SECRET : "oUUxA9MFjM92Y5rhI3uM72"
+        ]
     }
     buildTypes {
         release {
@@ -29,9 +37,9 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile ('com.android.support:appcompat-v7:24.2.1') {
+   /* compile ('com.android.support:appcompat-v7:24.2.1') {
         exclude group: 'com.android.support', module: 'support-v4'
-    }
+    }*/
     compile 'com.android.support:design:24.2.1'
     testCompile 'junit:junit:4.12'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -59,6 +67,11 @@ dependencies {
     compile 'org.greenrobot:greendao:3.2.0'
     //自动适配
     compile 'com.zhy:autolayout:1.4.5'
+    //卡片view
+    compile 'com.android.support:cardview-v7:24.2.1'
+    //个推推送
+    compile 'com.getui:sdk:2.9.5.0'
+    compile 'cn.bingoogolapple:bga-badgeview:1.1.3@aar'
+    compile 'com.nightonke:boommenu:2.0.4'
     compile project(':easeui')
-
 }

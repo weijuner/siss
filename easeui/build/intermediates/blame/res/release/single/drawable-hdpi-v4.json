@@ -200,12 +200,12 @@
         "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\drawable-hdpi\\ee_26.png"
     },
     {
-        "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_input_bar_bg_active.9.png",
-        "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\drawable-hdpi\\ease_input_bar_bg_active.9.png"
-    },
-    {
         "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_record_animate_11.png",
         "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\drawable-hdpi\\ease_record_animate_11.png"
+    },
+    {
+        "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_input_bar_bg_active.9.png",
+        "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\drawable-hdpi\\ease_input_bar_bg_active.9.png"
     },
     {
         "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_chatting_biaoqing_btn_normal.png",

@@ -128,7 +128,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             ex.printStackTrace(pw);
             pw.close();
         } catch (Exception e) {
-            Log.e(TAG, "dump crash info failed");
+            Log.e(TAG, "dump crash info failed"+e.toString());
         }
     }
 

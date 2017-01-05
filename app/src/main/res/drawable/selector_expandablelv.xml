@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><!--顶部tab栏左边选中背景-->
+<!--主页编辑框背景-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_expanded="false"
+        android:drawable="@drawable/arrow_right_lv"/>
+    <item android:state_expanded="true"
+        android:drawable="@drawable/arrow_down_lv"/>
+</selector>

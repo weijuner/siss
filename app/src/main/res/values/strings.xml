@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">房产交易系统</string>
+    <string name="app_name">交易通</string>
     <string name="label_WelActivity">欢迎activity</string>
     <string name="label_MainActivity">主activity</string>
     <string name="label_LoginActivity">登录activity</string>
@@ -7,5 +7,7 @@
     <string name="str_businesspage">业务</string>
     <string name="str_messagepage">消息</string>
     <string name="str_mepage">我的</string>
-
+    <string name="header_scrolling_behavior">com.srba.siss.widget.HeaderScrollingBehavior</string>
+    <string name="header_float_behavior">com.srba.siss.widget.HeaderFloatBehavior</string>
+    <string name="at_your_in_group">%s在群聊中@了你</string>
 </resources>

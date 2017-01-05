@@ -13,15 +13,15 @@
 
     </android.support.v4.view.ViewPager>
 
-    <View
+<!--    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/tab_bg_line"/>
+        android:background="@color/tab_bg_line"/>-->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/tab_bg"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -36,8 +36,8 @@
                 android:id="@+id/graiv_home"
                 android:layout_width="40dp"
                 android:layout_height="35dp"
-                app:bottom_icon="@mipmap/ic_launcher"
-                app:top_icon="@mipmap/ic_launcher"/>
+                app:bottom_icon="@mipmap/tab1_normal"
+                app:top_icon="@mipmap/tab1_selected"/>
 
             <com.srba.siss.view.GradientTextView
                 android:id="@+id/gratv_home"
@@ -61,8 +61,8 @@
                 android:id="@+id/graiv_business"
                 android:layout_width="40dp"
                 android:layout_height="35dp"
-                app:bottom_icon="@mipmap/ic_launcher"
-                app:top_icon="@mipmap/ic_launcher"/>
+                app:bottom_icon="@mipmap/tab2_normal"
+                app:top_icon="@mipmap/tab2_selected"/>
 
             <com.srba.siss.view.GradientTextView
                 android:id="@+id/gratv_business"
@@ -78,10 +78,21 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             >
-
+            <ImageButton
+                android:id="@+id/imbtn_add"
+                android:background="@mipmap/add_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
         </LinearLayout>
-        <LinearLayout
+        <cn.bingoogolapple.badgeview.BGABadgeLinearLayout
+            android:id="@+id/ll_message"
+            app:badge_horizontalMargin="10dp"
+            app:badge_dragable="true"
+            app:badge_isResumeTravel="true"
+            app:badge_gravity="rightTop"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -92,8 +103,8 @@
                 android:id="@+id/graiv_message"
                 android:layout_width="40dp"
                 android:layout_height="35dp"
-                app:bottom_icon="@mipmap/ic_launcher"
-                app:top_icon="@mipmap/ic_launcher"/>
+                app:bottom_icon="@mipmap/tab3_normal"
+                app:top_icon="@mipmap/tab3_selected"/>
 
             <com.srba.siss.view.GradientTextView
                 android:id="@+id/gratv_message"
@@ -104,7 +115,7 @@
                 app:text_size="12sp"
                 app:top_text_color="@color/tab_bg_green"/>
 
-        </LinearLayout>
+        </cn.bingoogolapple.badgeview.BGABadgeLinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -117,8 +128,8 @@
                 android:id="@+id/graiv_me"
                 android:layout_width="40dp"
                 android:layout_height="35dp"
-                app:bottom_icon="@mipmap/ic_launcher"
-                app:top_icon="@mipmap/ic_launcher"/>
+                app:bottom_icon="@mipmap/tab4_normal"
+                app:top_icon="@mipmap/tab4_selected"/>
 
             <com.srba.siss.view.GradientTextView
                 android:id="@+id/gratv_me"

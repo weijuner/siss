@@ -4,10 +4,17 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
 import com.srba.siss.R;
+import com.srba.siss.widget.pullzoomview.PullToZoomScrollViewEx;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * 作者:  曾维俊
@@ -24,7 +31,8 @@ public class MeFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    @BindView(R.id.scroll_view)
+    PullToZoomScrollViewEx scrollView;
 
     private String mParam1;
     private String mParam2;
@@ -57,9 +65,30 @@ public class MeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_me, container, false);
+        View view = inflater.inflate(R.layout.fragment_me, container, false);
+        ButterKnife.bind(this, view);
+        loadViewForCode();
+        initView();
+        return view;
     }
 
+    private void initView() {
+        DisplayMetrics localDisplayMetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(localDisplayMetrics);
+        int mScreenHeight = localDisplayMetrics.heightPixels;
+        int mScreenWidth = localDisplayMetrics.widthPixels;
+        LinearLayout.LayoutParams localObject = new LinearLayout.LayoutParams(mScreenWidth, (int) (9.0F * (mScreenWidth / 16.0F)));
+        scrollView.setHeaderLayoutParams(localObject);
+    }
+
+    private void loadViewForCode() {
+        View headView = LayoutInflater.from(getActivity()).inflate(R.layout.profile_head_view, null, false);
+        View zoomView = LayoutInflater.from(getActivity()).inflate(R.layout.profile_zoom_view, null, false);
+        View contentView = LayoutInflater.from(getActivity()).inflate(R.layout.profile_content_view, null, false);
+        scrollView.setHeaderView(headView);
+        scrollView.setZoomView(zoomView);
+        scrollView.setScrollContentView(contentView);
+    }
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

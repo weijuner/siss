@@ -32,12 +32,12 @@
         "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\drawable\\ease_btn_blue_selector.xml"
     },
     {
-        "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\ease_chat_image_selector.xml",
-        "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\drawable\\ease_chat_image_selector.xml"
-    },
-    {
         "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\ease_btn_blue_normal_shape.xml",
         "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\drawable\\ease_btn_blue_normal_shape.xml"
+    },
+    {
+        "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\ease_chat_image_selector.xml",
+        "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\drawable\\ease_chat_image_selector.xml"
     },
     {
         "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\drawable\\ease_recording_text_hint_bg.xml",

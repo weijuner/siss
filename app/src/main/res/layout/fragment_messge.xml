@@ -1,11 +1,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:text="消息"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="150dip"
+        android:layout_height="40dip"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+        <TextView
+            android:id="@+id/tv_sys_message"
+            android:textColor="@color/btn_white_normal"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/selector_left_tab_bar_select"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="通知"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            />
+        <TextView
+            android:textColor="@color/gray"
+            android:id="@+id/tv_user_message"
+            android:background="@drawable/selector_right_tab_bar_normal"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="消息"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_marginTop="10dp"
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"/>
+        android:layout_height="match_parent"
+    />
 </LinearLayout>

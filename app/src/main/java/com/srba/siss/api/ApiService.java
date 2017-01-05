@@ -23,7 +23,7 @@ import rx.Observable;
 public interface ApiService {
 
     String BASE_URL="http://gank.io/";
-    String HOST = "http://10.168.1.201:8888/";
+    String HOST = "http://10.168.8.196:8080/";
     @GET("api/data/Android/10/{page}")
     Observable<Gank> getGank(@Path("page") String page);
 
@@ -34,4 +34,11 @@ public interface ApiService {
      */
     @POST("so/srba/auth/login")
     Observable<String> login(@Body RequestBody route);
+
+    /**
+     * 获取房源信息
+     * @return  Observable被观察者
+     */
+    @POST("so/srba/appHouseResouse/getAppHouseResource")
+    Observable<String> getHouseInfo(@Body RequestBody model);
 }

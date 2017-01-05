@@ -72,10 +72,6 @@
         "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_widget_contact_list.xml"
     },
     {
-        "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_sent_message.xml",
-        "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_row_sent_message.xml"
-    },
-    {
         "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_sent_video_call.xml",
         "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_row_sent_video_call.xml"
     },
@@ -86,6 +82,10 @@
     {
         "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_chat_message_list.xml",
         "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_chat_message_list.xml"
+    },
+    {
+        "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_sent_message.xml",
+        "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_row_sent_message.xml"
     },
     {
         "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_received_picture.xml",
@@ -104,12 +104,12 @@
         "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_widget_switch_button.xml"
     },
     {
-        "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_received_file.xml",
-        "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_row_received_file.xml"
-    },
-    {
         "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_contact.xml",
         "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_row_contact.xml"
+    },
+    {
+        "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_received_file.xml",
+        "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_row_received_file.xml"
     },
     {
         "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_widget_emojicon_tab_bar.xml",
@@ -184,12 +184,12 @@
         "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_layout_chat_primary_menu.xml"
     },
     {
-        "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_received_voice_call.xml",
-        "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_row_received_voice_call.xml"
-    },
-    {
         "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_fragment_chat.xml",
         "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_fragment_chat.xml"
+    },
+    {
+        "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_received_voice_call.xml",
+        "source": "D:\\Android\\code\\sfzx\\siss\\easeui\\res\\layout\\ease_row_received_voice_call.xml"
     },
     {
         "merged": "D:\\Android\\code\\sfzx\\siss\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_received_location.xml",

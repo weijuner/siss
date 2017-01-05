@@ -46,6 +46,6 @@ public class WelActivity extends BaseActivity {
                 startActivity(new Intent(WelActivity.this, LoginActivity.class));
                 finish();
             }
-        }, 3000);
+        }, 0);
     }
 }

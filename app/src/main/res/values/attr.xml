@@ -14,6 +14,26 @@
         <attr name="top_text_color" format="color" />
         <attr name="bottom_text_color" format="color" />
     </declare-styleable>
-
-
+    <!--时间轴-->
+    <declare-styleable name="timeline_style" >
+        <attr name="marker" format="color|reference"/>
+        <attr name="lineColor" format="color|reference"/>
+        <attr name="marker_size" format="dimension"/>
+        <attr name="line_size" format="dimension"/>
+        <attr name="line_orientation" format="enum">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr name="markerInCenter" format="boolean"/>
+        <attr name="lineType" format="enum">
+            <enum name="solid" value="1"/>
+            <enum name="dotted" value="2"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="PullToZoomView">
+        <attr name="headerView" format="reference" />
+        <attr name="contentView" format="reference" />
+        <attr name="zoomView" format="reference" />
+        <attr name="isHeaderParallax" format="boolean" />
+    </declare-styleable>
 </resources>
