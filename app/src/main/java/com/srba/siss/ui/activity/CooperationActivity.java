@@ -31,8 +31,6 @@ import com.srba.siss.ui.fragment.MessageFragment;
 import com.srba.siss.ui.fragment.OnFragmentInteractionListener;
 import com.srba.siss.ui.fragment.PageFragment;
 import com.srba.siss.ui.fragment.UserMessageFragment;
-import com.yolanda.nohttp.PosterHandler;
-
 import java.util.ArrayList;
 import java.util.List;
 

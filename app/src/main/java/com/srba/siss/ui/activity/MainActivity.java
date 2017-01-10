@@ -13,7 +13,6 @@ import android.widget.ImageButton;
 import com.igexin.sdk.PushManager;
 import com.srba.siss.R;
 import com.srba.siss.base.BaseMvpActivity;
-import com.srba.siss.bean.Gank;
 import com.srba.siss.mvp.main.MainContract;
 import com.srba.siss.mvp.main.MainPresenter;
 import com.srba.siss.ui.fragment.BusinessFragment;
@@ -21,6 +20,7 @@ import com.srba.siss.ui.fragment.HomeFragment;
 import com.srba.siss.ui.fragment.MeFragment;
 import com.srba.siss.ui.fragment.MessageFragment;
 import com.srba.siss.ui.fragment.OnFragmentInteractionListener;
+import com.srba.siss.util.Timber;
 import com.srba.siss.view.BottomPopupWindow;
 import com.srba.siss.view.GradientIconView;
 import com.srba.siss.view.GradientTextView;
@@ -33,7 +33,6 @@ import butterknife.OnClick;
 import cn.bingoogolapple.badgeview.BGABadgeLinearLayout;
 import cn.bingoogolapple.badgeview.BGABadgeable;
 import cn.bingoogolapple.badgeview.BGADragDismissDelegate;
-import timber.log.Timber;
 
 /**
  * 作者:  曾维俊
@@ -102,7 +101,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter>
      */
     private void initFragments() {
 
-        mTabs.add(HomeFragment.newInstance("", ""));
+        mTabs.add(HomeFragment.newInstance());
         mTabs.add(BusinessFragment.newInstance("", ""));
         mTabs.add(MessageFragment.newInstance("", ""));
         mTabs.add(MeFragment.newInstance("", ""));
@@ -143,7 +142,11 @@ public class MainActivity extends BaseMvpActivity<MainPresenter>
                 startActivity(new Intent(MainActivity.this,AddHouseResActivity.class));
 
             case R.id.ll_add_buyer:
-                Timber.e("登记房源");
+                if (null != menuWindow){
+                    menuWindow.dismiss();
+                }
+                startActivity(new Intent(MainActivity.this,AddBuyerResActivity.class));
+
             case R.id.ll_sell_cooperation:
                 Timber.e("登记房源");
             case R.id.ll_buy_cooperation:
@@ -176,10 +179,6 @@ public class MainActivity extends BaseMvpActivity<MainPresenter>
 
     }
 
-    @Override
-    public void onSucceed(Gank data) {
-
-    }
 
     @Override
     public void onFail(String err) {

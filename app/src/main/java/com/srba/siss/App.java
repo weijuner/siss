@@ -11,8 +11,8 @@ import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.model.EaseNotifier;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
 import com.srba.siss.ui.activity.ChatActivity;
+import com.srba.siss.util.Timber;
 
-import timber.log.Timber;
 
 import static com.hyphenate.easeui.utils.EaseUserUtils.getUserInfo;
 
@@ -37,16 +37,17 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
-        if (BuildConfig.DEBUG) {
-            Timber.plant(new Timber.DebugTree());
-        } else {
-         //   Timber.plant(new CrashReportingTree());
-        }
+
         //在这里为应用设置异常处理程序，然后我们的程序才能捕获未处理的异常
   //      CrashHandler crashHandler = CrashHandler.getInstance();
   //      crashHandler.init(this);
         // 初始化环信SDK
         //init demo helper
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        } else {
+        //    Timber.plant(new CrashReportingTree());
+        }
         MessageHelper.getInstance().init(mContext);
     }
 

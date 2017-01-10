@@ -1,7 +1,9 @@
 package com.srba.siss.base;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-
+import android.util.Log;
 
 /**
  * 作者:  曾维俊
@@ -19,19 +21,31 @@ public abstract class BaseMvpFragment<P extends BasePresenter> extends Fragment 
     protected P mPresenter;
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         if (onCreatePresenter() != null) {
             mPresenter = onCreatePresenter();
         }
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mPresenter != null) {
+            Log.e("tag","unSubscribe");
+            mPresenter.unSubscribe();
+        }
+        super.onDestroy();
     }
 
     @Override
     public void onPause() {
+
         super.onPause();
-        if (mPresenter != null) {
-            mPresenter.unSubscribe();
-        }
     }
 
     protected abstract P onCreatePresenter();

@@ -1,4 +1,5 @@
-package com.srba.siss.mvp.main;
+package com.srba.siss.mvp.buyeremand;
+
 
 
 
@@ -13,7 +14,7 @@ package com.srba.siss.mvp.main;
  * 2016/11/23       曾维俊               1.0                   1.0
  * 修改原因以及修改内容:
  */
-public class MainModel implements MainContract.Model {
+public class BuyerEmandModel implements BuyerEmandContract.Model {
 
 
 }

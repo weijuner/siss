@@ -20,7 +20,6 @@ import android.os.Bundle;
 
 import com.srba.siss.R;
 import com.srba.siss.base.BaseActivity;
-import com.yolanda.nohttp.PosterHandler;
 
 
 /**

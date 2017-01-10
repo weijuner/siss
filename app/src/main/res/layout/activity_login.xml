@@ -31,6 +31,8 @@
             android:layout_margin="10dp"/>
 
         <EditText
+            android:id="@+id/et_username"
+            android:text="32102719890312391X"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -49,6 +51,8 @@
             android:layout_margin="10dp"/>
 
         <EditText
+            android:id="@+id/et_password"
+            android:text="123456"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>

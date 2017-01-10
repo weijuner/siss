@@ -2,7 +2,6 @@ package com.srba.siss.mvp.main;
 
 
 import com.srba.siss.R;
-import com.srba.siss.bean.Gank;
 
 import rx.Subscriber;
 import rx.Subscription;
@@ -25,36 +24,7 @@ public class MainPresenter extends MainContract.Presenter {
         mModel = new MainModel();
     }
 
-    @Override
-    public void getGank() {
 
-        Subscription subscribe = mModel.getGank()
-                .subscribe(new Subscriber<Gank>() {
-
-                    @Override
-                    public void onStart() {
-                        mView.showDialog();
-                    }
-
-                    @Override
-                    public void onCompleted() {
-                        mView.hideDialog();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        mView.onFail(e.getMessage());
-                        onCompleted();
-                    }
-
-                    @Override
-                    public void onNext(Gank gank) {
-                        mView.onSucceed(gank);
-                    }
-                });
-
-        addSubscribe(subscribe);
-    }
 
     @Override
     public void switchNavigation(int id) {

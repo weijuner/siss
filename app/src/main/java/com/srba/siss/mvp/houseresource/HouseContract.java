@@ -4,6 +4,10 @@ package com.srba.siss.mvp.houseresource;
 import com.srba.siss.base.BaseModel;
 import com.srba.siss.base.BasePresenter;
 import com.srba.siss.base.BaseView;
+import com.srba.siss.bean.HouseResource;
+import com.srba.siss.bean.HouseResult;
+
+import java.util.List;
 
 import rx.Observable;
 
@@ -22,11 +26,12 @@ public interface HouseContract {
 
     interface View extends BaseView {
         void startMainActivity();
-
+        void updateRecyclerView(List<HouseResource> houses);
+        void updateFailure();
     }
 
     interface Model extends BaseModel {
-        Observable<String> getHouseInfo();
+        Observable<HouseResult> getHouseInfo();
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pop_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="15dip" >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,7 +15,6 @@
         android:orientation="horizontal">
 
         <ListView
-            android:choiceMode="singleChoice"
             android:id="@+id/lv_left"
             android:layout_width="150dp"
             android:layout_height="match_parent"
@@ -21,7 +23,6 @@
             android:scrollbars="none" />
 
         <ListView
-            android:choiceMode="singleChoice"
             android:id="@+id/lv_right"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,4 +30,4 @@
             android:dividerHeight="0px"
             android:scrollbars="none" />
     </LinearLayout>
-</merge>
+</LinearLayout>

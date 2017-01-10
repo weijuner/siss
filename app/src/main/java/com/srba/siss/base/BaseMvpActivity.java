@@ -3,6 +3,7 @@ package com.srba.siss.base;
 import android.os.Bundle;
 
 
+
 /**
  * 作者:  曾维俊
  * 版本:  1.0
@@ -28,6 +29,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActiv
             mPresenter = onCreatePresenter();
         }
     }
+
 
     @Override
     protected void onDestroy() {

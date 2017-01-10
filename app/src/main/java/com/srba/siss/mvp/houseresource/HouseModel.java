@@ -2,6 +2,7 @@ package com.srba.siss.mvp.houseresource;
 
 import com.google.gson.Gson;
 import com.srba.siss.api.ApiEngine;
+import com.srba.siss.bean.HouseResult;
 import com.srba.siss.mvp.login.LoginContract;
 import com.srba.siss.rx.RxSchedulers;
 
@@ -24,7 +25,7 @@ import rx.Observable;
 public class HouseModel implements HouseContract.Model {
 
     @Override
-    public Observable<String> getHouseInfo() {
+    public Observable<HouseResult> getHouseInfo() {
         Gson gson=new Gson();
 
         HashMap<String,String> paramsMap=new HashMap<>();
@@ -38,6 +39,6 @@ public class HouseModel implements HouseContract.Model {
 
         return ApiEngine.getInstance().getApiService()
                 .getHouseInfo(body)
-                .compose(RxSchedulers.<String>switchThread());
+                .compose(RxSchedulers.<HouseResult>switchThread());
     }
 }

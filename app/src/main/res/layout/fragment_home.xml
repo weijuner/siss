@@ -67,76 +67,80 @@
                     android:text="搜索需求或房源"
                     android:drawableLeft="@drawable/search"
                     android:textColor="#90000000"/>
+
+                <LinearLayout
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:id="@+id/ll_searchhouse"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="100px"
+                            android:layout_height="100px"
+                            android:src="@drawable/home_icon_ershoufang_slt"
+                            app:civ_border_width="0dp"
+                            app:civ_border_color="#FF000000"/>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:text="找房源"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_buyerres"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="100px"
+                            android:layout_height="100px"
+                            android:src="@drawable/home_icon_ershoufang_slt"
+                            app:civ_border_width="0dp"
+                            app:civ_border_color="#FF000000"/>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:text="找客源"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ll_cooperation"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="100px"
+                            android:layout_height="100px"
+                            android:src="@drawable/home_icon_ershoufang_slt"
+                            app:civ_border_width="0dp"
+                            app:civ_border_color="#FF000000"/>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:text="找合作"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
             </LinearLayout>
+
         </android.support.design.widget.CollapsingToolbarLayout>
-        <LinearLayout
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:id="@+id/ll_searchhouse"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="100px"
-                    android:layout_height="100px"
-                    android:src="@drawable/home_icon_ershoufang_slt"
-                    app:civ_border_width="0dp"
-                    app:civ_border_color="#FF000000"/>
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:text="找房源"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ll_buyerres"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="100px"
-                    android:layout_height="100px"
-                    android:src="@drawable/home_icon_ershoufang_slt"
-                    app:civ_border_width="0dp"
-                    app:civ_border_color="#FF000000"/>
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:text="找客源"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/ll_cooperation"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="100px"
-                    android:layout_height="100px"
-                    android:src="@drawable/home_icon_ershoufang_slt"
-                    app:civ_border_width="0dp"
-                    app:civ_border_color="#FF000000"/>
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:text="找合作"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-        </LinearLayout>
         <android.support.design.widget.TabLayout
             android:id="@+id/tab"
             app:tabGravity="fill"

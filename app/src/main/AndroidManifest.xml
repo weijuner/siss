@@ -72,6 +72,9 @@
             android:name=".ui.activity.AddHouseResActivity"/>
         <activity
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name=".ui.activity.AddBuyerResActivity"/>
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".ui.activity.SearchActivity"/>
         <activity
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"

@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.srba.siss.R;
 import com.srba.siss.base.BaseMvpActivity;
 import com.srba.siss.mvp.login.LoginContract;
 import com.srba.siss.mvp.login.LoginPresenter;
+import com.srba.siss.util.SPUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -27,7 +29,10 @@ import butterknife.OnClick;
 public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements LoginContract.View {
     @BindView(R.id.btn_login)
     Button btn_login;
-
+    @BindView(R.id.et_username)
+    EditText et_username;
+    @BindView(R.id.et_password)
+    EditText et_password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,14 +56,18 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
         switch (view.getId()) {
             case R.id.btn_login:
                 //请求接口
-                //mPresenter.login("430521199207103331", "103331");
+         //       mPresenter.login("430521199207103331", "103331");
                 startActivity(new Intent(mActivity, MainActivity.class));
                 break;
         }
     }
 
     @Override
-    public void startMainActivity() {
+    public void startMainActivity()
+    {
+        SPUtils sp = new SPUtils(this);
+        sp.putString("username",et_username.getText().toString());
+        sp.putString("password",et_password.getText().toString());
         startActivity(new Intent(mActivity, MainActivity.class));
     }
 }

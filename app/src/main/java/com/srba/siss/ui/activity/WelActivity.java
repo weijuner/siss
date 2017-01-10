@@ -20,8 +20,6 @@ import android.os.Bundle;
 
 import com.srba.siss.R;
 import com.srba.siss.base.BaseActivity;
-import com.yolanda.nohttp.PosterHandler;
-
 
 /**
  * 作者:  曾维俊
@@ -40,12 +38,9 @@ public class WelActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wel);
-        PosterHandler.getInstance().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(WelActivity.this, LoginActivity.class));
-                finish();
-            }
-        }, 0);
+
+        startActivity(new Intent(WelActivity.this, LoginActivity.class));
+        finish();
+
     }
 }

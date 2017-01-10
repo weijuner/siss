@@ -1,12 +1,13 @@
 package com.srba.siss.mvp.houseresource;
 
 
+import com.srba.siss.bean.HouseResult;
 import com.srba.siss.mvp.login.LoginContract;
 import com.srba.siss.mvp.login.LoginModel;
+import com.srba.siss.util.Timber;
 
 import rx.Subscriber;
 import rx.Subscription;
-import timber.log.Timber;
 
 /**
  * 作者:  曾维俊
@@ -32,7 +33,7 @@ public class HousePresenter extends HouseContract.Presenter {
     @Override
     public void getHouseInfo() {
         Subscription subscribe = mModel.getHouseInfo()
-                .subscribe(new Subscriber<String>() {
+                .subscribe(new Subscriber<HouseResult>() {
 
                     @Override
                     public void onStart() {
@@ -48,12 +49,12 @@ public class HousePresenter extends HouseContract.Presenter {
                     public void onError(Throwable e) {
                         Timber.e("onError"+e.toString());
                         onCompleted();
-
+                        mView.updateFailure();
                     }
+
                     @Override
-                    public void onNext(String str) {
-                        Timber.e("onNext"+str);
-                   //     mView.startMainActivity();
+                    public void onNext(HouseResult houseResult) {
+                        mView.updateRecyclerView(houseResult.getData().getResult());
                     }
                 });
         addSubscribe(subscribe);

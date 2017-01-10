@@ -1,11 +1,9 @@
-package com.srba.siss.mvp.main;
+package com.srba.siss.mvp.buyeremand;
 
 
 import com.srba.siss.base.BaseModel;
 import com.srba.siss.base.BasePresenter;
 import com.srba.siss.base.BaseView;
-
-import rx.Observable;
 
 /**
  * 作者:  曾维俊
@@ -18,24 +16,9 @@ import rx.Observable;
  * 2016/11/23       曾维俊               1.0                   1.0
  * 修改原因以及修改内容:
  */
-public interface MainContract {
+public interface BuyerEmandContract {
 
     interface View extends BaseView {
-
-        void showDialog();
-
-
-        void onFail(String err);
-
-        void hideDialog();
-
-        void switch2HomePage();
-
-        void switch2Business();
-
-        void switch2Message();
-
-        void switch2Me();
 
     }
 
@@ -45,7 +28,5 @@ public interface MainContract {
 
     abstract class Presenter extends BasePresenter<View, Model> {
 
-
-        public abstract void switchNavigation(int id);
     }
 }

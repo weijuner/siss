@@ -18,11 +18,11 @@ import android.widget.TextView;
 import com.srba.siss.R;
 import com.srba.siss.filter.adapter.MenuAdapter;
 import com.srba.siss.filter.util.UIUtil;
+import com.srba.siss.util.Timber;
 
 import java.util.Arrays;
 import java.util.List;
 
-import timber.log.Timber;
 
 public class FixedTabIndicator extends LinearLayout {
 

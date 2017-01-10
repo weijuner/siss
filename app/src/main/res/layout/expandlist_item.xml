@@ -4,7 +4,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="45dp">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -29,16 +28,5 @@
             android:textColor="@color/gray"
             android:textSize="20sp"
             android:gravity="center_vertical"/>
-        <ImageView
-            android:id="@+id/iv_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#bfbfbf"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_alignParentTop="true"/>
-
     </RelativeLayout>
-
-
 </LinearLayout>

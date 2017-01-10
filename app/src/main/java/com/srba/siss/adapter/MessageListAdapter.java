@@ -100,19 +100,13 @@ public class MessageListAdapter extends BaseExpandableListAdapter {
             view = LayoutInflater.from(mContext).inflate(R.layout.expandlist_item, null);
             holder.childName = (TextView)view.findViewById(R.id.tv_child_name);
             holder.sound = (CircleImageView)view.findViewById(R.id.iv_avatar);
-            holder.divider = (ImageView)view.findViewById(R.id.iv_divider);
             view.setTag(holder);
         }else{
             holder = (ChildHolder)view.getTag();
         }
 
-        if(childPosition == 0){
-            holder.divider.setVisibility(View.GONE);
-        }
-
         holder.sound.setBackgroundResource(R.drawable.ic_launcher);
         holder.childName.setText(childArray.get(groupPosition).get(childPosition));
-
         return view;
     }
 
@@ -129,7 +123,6 @@ public class MessageListAdapter extends BaseExpandableListAdapter {
     class ChildHolder{
         public TextView childName;
         public CircleImageView sound;
-        public ImageView divider;
     }
 
 }
