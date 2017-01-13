@@ -1,4 +1,6 @@
-package com.srba.siss.bean;
+package com.srba.siss.bean.result;
+
+import com.srba.siss.bean.HouseResource;
 
 import java.util.List;
 
