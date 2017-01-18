@@ -2,6 +2,7 @@ package com.srba.siss.ui.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -9,6 +10,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,9 +49,9 @@ import butterknife.OnClick;
  * 修改原因以及修改内容:
  */
 public class HomeFragment extends Fragment implements AppBarLayout.OnOffsetChangedListener {
+    private View mContentView;
 
-    TabLayout tab;
-    ViewPager viewpager;
+
     /**
      * 找房源
      */
@@ -69,9 +71,15 @@ public class HomeFragment extends Fragment implements AppBarLayout.OnOffsetChang
     EditText et_search;
     @BindView(R.id.appbar)
     AppBarLayout appbar;
+    @BindView(R.id.tab)
+    TabLayout tab;
+    @BindView(R.id.viewpager)
+    ViewPager viewpager;
+
     private List<Fragment> mTabs = new ArrayList<>();
     private List<String> list_title;
     NewestHouseFragment mNewsHouseFragmenr;
+    NewestEmandFragment mNewsEmandFragmenr;
     //tab名称列表
     /*
     和activity沟通的监听
@@ -97,16 +105,46 @@ public class HomeFragment extends Fragment implements AppBarLayout.OnOffsetChang
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        ButterKnife.bind(this, view);
-        tab = (TabLayout) view.findViewById(R.id.tab);
-        tab.addTab(tab.newTab().setText("最新房源"));//添加一个Tab
-        tab.addTab(tab.newTab().setText("最新需求"));//添加一个Tab
-        viewpager = (ViewPager) view.findViewById(R.id.viewpager);
+        Timber.e("onCreateView");
+        /**
+         * 防止Fragment多次切换时调用onCreateView重新加载View
+         */
+        if (null == mContentView)
+        {
+            mContentView = inflater.inflate(R.layout.fragment_home, container, false);
+            ButterKnife.bind(this, mContentView);
+            initView();
+            /**
+             * 为了保证一开始加载Fragment的时候判断是否需要加载数据
+             */
+            if (getUserVisibleHint())
+            {
+                Timber.e("数据加载");
+                //todo:数据加载
+                initData();
+            }
+        } else {
+            /**
+             * 缓存的rootView需要判断是否已经被加过parent，
+             * 如果有parent需要从parent删除，要不然会发生这个rootview已经有parent的错误。
+             */
+            ViewGroup parent = (ViewGroup) mContentView.getParent();
+            if (parent != null)
+            {
+                parent.removeView(mContentView);
+            }
+        }
+        return mContentView;
+    }
 
+    /**
+     * 初始化视图
+     */
+    private void initView() {
         mNewsHouseFragmenr = NewestHouseFragment.newInstance();
+        mNewsEmandFragmenr = NewestEmandFragment.newInstance();
         mTabs.add(mNewsHouseFragmenr);
-        mTabs.add(PageFragment.newInstance(2));
+        mTabs.add(mNewsEmandFragmenr);
         list_title = new ArrayList<>();
         list_title.add("最新房源");
         list_title.add("最新需求");
@@ -115,15 +153,6 @@ public class HomeFragment extends Fragment implements AppBarLayout.OnOffsetChang
         viewpager.setAdapter(mAdapter);
         tab.setupWithViewPager(viewpager);
         viewpager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab));//让TabLayout成为ViewPager的指示器
-        initData();
-        initView();
-        return view;
-    }
-
-    /**
-     * 初始化视图
-     */
-    private void initView() {
         appbar.addOnOffsetChangedListener(this);
     }
 
@@ -177,14 +206,27 @@ public class HomeFragment extends Fragment implements AppBarLayout.OnOffsetChang
 
     @Override
     public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-        if (verticalOffset == 0) {
-            Timber.e("可以下拉");
-            mNewsHouseFragmenr.onAppBarExpanded();
-        } else {
-            Timber.e("不能下拉");
-            mNewsHouseFragmenr.onAppBarCollapsed();
+        if(null != mNewsHouseFragmenr){
+            if (verticalOffset == 0) {
+                //   Timber.e("可以下拉");
+                mNewsHouseFragmenr.onAppBarExpanded();
+            } else {
+                //       Timber.e("不能下拉");
+                mNewsHouseFragmenr.onAppBarCollapsed();
+            }
+        }
+        if(null != mNewsEmandFragmenr){
+            if (verticalOffset == 0) {
+                mNewsEmandFragmenr.onAppBarExpanded();
+            } else {
+                mNewsEmandFragmenr.onAppBarCollapsed();
+            }
         }
     }
+
+    /**
+     * appbar状态改变接口
+     */
     public interface AppBarChangeListner {
         /**
          */

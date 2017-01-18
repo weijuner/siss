@@ -6,8 +6,10 @@ import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.srba.siss.R;
 import com.srba.siss.filter.adapter.BaseBaseAdapter;
 import com.srba.siss.filter.interfaces.OnFilterItemClickListener;
 import com.srba.siss.filter.util.CommonUtil;
@@ -25,8 +27,9 @@ import java.util.List;
  * 2016/11/23       曾维俊               1.0                   1.0
  * 修改原因以及修改内容:
  */
-public class BottomListView<DATA> extends ListView implements AdapterView.OnItemClickListener {
+public class BottomListView<DATA> extends LinearLayout implements AdapterView.OnItemClickListener {
 
+    private ListView mListView;
     private BaseBaseAdapter<DATA> mAdapter;
     private OnFilterItemClickListener<DATA> mOnItemClickListener;
 
@@ -45,12 +48,10 @@ public class BottomListView<DATA> extends ListView implements AdapterView.OnItem
     }
 
     private void init(Context context) {
-        setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        setDivider(null);
-        setDividerHeight(0);
-        setSelector(new ColorDrawable(Color.TRANSPARENT));
-
-        setOnItemClickListener(this);
+        setOrientation(VERTICAL);
+        inflate(context, R.layout.popup_single_list, this);
+        mListView = (ListView) findViewById(R.id.listview);
+        mListView.setOnItemClickListener(this);
     }
 
     /**
@@ -60,7 +61,7 @@ public class BottomListView<DATA> extends ListView implements AdapterView.OnItem
      */
     public BottomListView<DATA> adapter(BaseBaseAdapter<DATA> adapter) {
         this.mAdapter = adapter;
-        setAdapter(adapter);
+        mListView.setAdapter(adapter);
         return this;
     }
 
@@ -76,9 +77,8 @@ public class BottomListView<DATA> extends ListView implements AdapterView.OnItem
 
     public void setList(List<DATA> list, int checkedPositoin) {
         mAdapter.setList(list);
-
         if (checkedPositoin != -1) {
-            setItemChecked(checkedPositoin, true);
+            mListView.setItemChecked(checkedPositoin, true);
         }
     }
 
@@ -100,5 +100,4 @@ public class BottomListView<DATA> extends ListView implements AdapterView.OnItem
             mOnItemClickListener.onItemClick(item);
         }
     }
-
 }

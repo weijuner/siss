@@ -21,12 +21,12 @@ import rx.Observable;
 public interface LoginContract {
 
     interface View extends BaseView {
-        void startMainActivity();
-
+        void loginSuccess(String username,String name);
+        void loginFailure(String msg);
     }
 
     interface Model extends BaseModel {
-        Observable<String> login(String username,String password);
+        Observable<String> login(String username, String password);
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {

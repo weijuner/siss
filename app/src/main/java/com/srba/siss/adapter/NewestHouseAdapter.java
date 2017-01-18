@@ -1,13 +1,18 @@
 package com.srba.siss.adapter;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.srba.siss.R;
 import com.srba.siss.bean.HouseResource;
+import com.srba.siss.ui.activity.MainActivity;
+import com.srba.siss.ui.activity.RecommendBuyerActivity;
 
 import java.util.List;
 
@@ -26,10 +31,12 @@ import java.util.List;
 public class NewestHouseAdapter extends RecyclerView.Adapter<NewestHouseAdapter.ViewHolder> {
     // 数据集
     private List<HouseResource> mHouses;
+    private Context mContext;
 
-    public NewestHouseAdapter(List<HouseResource> houses) {
+    public NewestHouseAdapter(Context mContext,List<HouseResource> houses) {
         super();
-        mHouses = houses;
+        this.mHouses = houses;
+        this.mContext = mContext;
     }
 
     @Override
@@ -53,12 +60,16 @@ public class NewestHouseAdapter extends RecyclerView.Adapter<NewestHouseAdapter.
         // 绑定数据到ViewHolder上
 
         viewHolder.tv_neighbourhood.setText(mHouses.get(i).getNeighbourhood());
-        viewHolder.tv_houseType.setText(mHouses.get(i).getHouseType());
-        viewHolder.tv_price.setText(mHouses.get(i).getPrice()+"");
-        viewHolder.tv_area.setText(mHouses.get(i).getArea());
-        viewHolder.tv_floor.setText(mHouses.get(i).getFloor()+"");
-        viewHolder.tv_direction.setText(mHouses.get(i).getDirection());
-
+        viewHolder.tv_houseType.setText(mHouses.get(i).getRoom()+"室"+mHouses.get(i).getHall()+"厅");
+        viewHolder.tv_price.setText(mHouses.get(i).getPrice()+"万");
+        viewHolder.tv_area.setText(mHouses.get(i).getArea()+"m²");
+        viewHolder.tv_region.setText(mHouses.get(i).getRegion()+"");
+        viewHolder.btn_recommend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext.startActivity(new Intent(mContext, RecommendBuyerActivity.class));
+            }
+        });
     }
 
     @Override
@@ -69,25 +80,26 @@ public class NewestHouseAdapter extends RecyclerView.Adapter<NewestHouseAdapter.
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView tv_neighbourhood;
+        public TextView tv_region;
         public TextView tv_houseType;
+        public TextView tv_neighbourhood;
         public TextView tv_price;
         public TextView tv_area;
-        public TextView tv_floor;
-        public TextView tv_direction;
-
+        public Button btn_recommend;
         public ViewHolder(View itemView) {
 
             super(itemView);
 
-            tv_neighbourhood = (TextView) itemView.findViewById(R.id.tv_neighbourhood);
+            tv_region = (TextView) itemView.findViewById(R.id.tv_region);
             tv_houseType = (TextView) itemView.findViewById(R.id.tv_houseType);
             tv_price = (TextView) itemView.findViewById(R.id.tv_price);
             tv_area = (TextView) itemView.findViewById(R.id.tv_area);
-            tv_floor = (TextView) itemView.findViewById(R.id.tv_floor);
-            tv_direction = (TextView) itemView.findViewById(R.id.tv_direction);
+            tv_neighbourhood = (TextView) itemView.findViewById(R.id.tv_neighbourhood);
+            btn_recommend = (Button) itemView.findViewById(R.id.btn_recommend);
+
         }
 
     }
+
 
 }

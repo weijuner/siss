@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import com.igexin.sdk.PushManager;
 import com.srba.siss.R;
@@ -23,7 +25,6 @@ import com.srba.siss.ui.fragment.OnFragmentInteractionListener;
 import com.srba.siss.util.Timber;
 import com.srba.siss.view.BottomPopupWindow;
 import com.srba.siss.view.GradientIconView;
-import com.srba.siss.view.GradientTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,18 +58,16 @@ public class MainActivity extends BaseMvpActivity<MainPresenter>
     GradientIconView graiv_message;
     @BindView(R.id.graiv_me)
     GradientIconView graiv_me;
-    @BindView(R.id.gratv_home)
-    GradientTextView gratv_home;
-    @BindView(R.id.gratv_business)
-    GradientTextView gratv_business;
-    @BindView(R.id.gratv_message)
-    GradientTextView gratv_message;
-    @BindView(R.id.gratv_me)
-    GradientTextView gratv_me;
     @BindView(R.id.ll_message)
     BGABadgeLinearLayout ll_message;
     @BindView(R.id.imbtn_add)
     ImageButton imbtn_add;
+    @BindView(R.id.ll_home)
+    LinearLayout ll_home;
+    @BindView(R.id.ll_business)
+    LinearLayout ll_business;
+    @BindView(R.id.ll_me)
+    LinearLayout ll_me;
     private List<Fragment> mTabs = new ArrayList<>();
     private FragmentPagerAdapter mAdapter;
     private BottomPopupWindow menuWindow;
@@ -77,7 +76,6 @@ public class MainActivity extends BaseMvpActivity<MainPresenter>
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      //  mPresenter.getGank();
         initFragments();
         initView();
 // com.getui.demo.DemoPushService 为第三方自定义推送服务
@@ -87,6 +85,10 @@ public class MainActivity extends BaseMvpActivity<MainPresenter>
     }
 
     private void initView() {
+        graiv_home.setIconAlpha(1.0f);
+        graiv_business.setIconAlpha(0f);
+        graiv_message.setIconAlpha(0f);
+        graiv_me.setIconAlpha(0f);
         ll_message.showTextBadge("99+");
         ll_message.setDragDismissDelegage(new BGADragDismissDelegate() {
             @Override
@@ -95,6 +97,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter>
             }
         });
     }
+
 
     /**
      * 初始化fragment
@@ -118,18 +121,24 @@ public class MainActivity extends BaseMvpActivity<MainPresenter>
                 return mTabs.get(arg0);
             }
         };
-
+        mViewPager.setOffscreenPageLimit(2);
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOnPageChangeListener(this);
     }
-    @OnClick({R.id.graiv_home,R.id.graiv_business,R.id.graiv_message,R.id.graiv_me,R.id.imbtn_add})
+    @OnClick({R.id.ll_home,R.id.ll_business,R.id.ll_message,R.id.ll_me,R.id.imbtn_add})
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.graiv_home:
-            case R.id.graiv_business:
-            case R.id.graiv_message:
-            case R.id.graiv_me:
+            case R.id.ll_home:
+                mPresenter.switchNavigation(view.getId());
+                break;
+            case R.id.ll_business:
+                mPresenter.switchNavigation(view.getId());
+                break;
+            case R.id.ll_message:
+                mPresenter.switchNavigation(view.getId());
+                break;
+            case R.id.ll_me:
                 mPresenter.switchNavigation(view.getId());
                 break;
             case R.id.imbtn_add:
@@ -148,9 +157,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter>
                 startActivity(new Intent(MainActivity.this,AddBuyerResActivity.class));
 
             case R.id.ll_sell_cooperation:
-                Timber.e("登记房源");
             case R.id.ll_buy_cooperation:
-                Timber.e("登记房源");
                 break;
         }
     }
@@ -193,30 +200,65 @@ public class MainActivity extends BaseMvpActivity<MainPresenter>
     @Override
     public void switch2HomePage() {
         Timber.e("首页");
+
+
         mViewPager.setCurrentItem(0, false);
+
+        graiv_home.setIconAlpha(1.0f);
+        graiv_business.setIconAlpha(0f);
+        graiv_message.setIconAlpha(0f);
+        graiv_me.setIconAlpha(0f);
     }
 
     @Override
     public void switch2Business() {
         Timber.e("业务");
         mViewPager.setCurrentItem(1, false);
+        graiv_home.setIconAlpha(0f);
+        graiv_business.setIconAlpha(1.0f);
+        graiv_message.setIconAlpha(0f);
+        graiv_me.setIconAlpha(0f);
     }
+
 
     @Override
     public void switch2Message() {
         Timber.e("消息");
         mViewPager.setCurrentItem(2, false);
+        graiv_home.setIconAlpha(0f);
+        graiv_business.setIconAlpha(0f);
+        graiv_message.setIconAlpha(1.0f);
+        graiv_me.setIconAlpha(0f);
+
     }
 
     @Override
     public void switch2Me() {
         Timber.e("我的");
         mViewPager.setCurrentItem(3, false);
+        graiv_home.setIconAlpha(0f);
+        graiv_business.setIconAlpha(0f);
+        graiv_message.setIconAlpha(0f);
+        graiv_me.setIconAlpha(1.0f);
     }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        switch (position){
+            case 0:
+                graiv_home.setIconAlpha(1 - positionOffset);//左边越来越淡
+                graiv_business.setIconAlpha(positionOffset);//右边越来越清晰
+                break;
+            case 1:
+                graiv_business.setIconAlpha(1 - positionOffset);//左边越来越淡
+                graiv_message.setIconAlpha(positionOffset);//右边越来越清晰
+                break;
+            case 2:
+                graiv_message.setIconAlpha(1 - positionOffset);//左边越来越淡
+                graiv_me.setIconAlpha(positionOffset);//右边越来越清晰
+                break;
 
+        }
     }
 
     @Override

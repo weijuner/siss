@@ -15,5 +15,9 @@ public interface OnSingleListPopClickListener {
     /**
      * 过滤器处理完成
      */
-    void onPopWindowClick(String region, String regionDetail);
+    void onPopWindowClick(String content);
+    /**
+     * 点击外部
+     */
+    void onOutClick();
 }

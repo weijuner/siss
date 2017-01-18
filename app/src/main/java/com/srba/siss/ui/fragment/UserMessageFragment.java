@@ -17,6 +17,7 @@ import com.hyphenate.chat.EMMessage;
 import com.srba.siss.R;
 import com.srba.siss.adapter.MessageListAdapter;
 import com.srba.siss.ui.activity.ChatActivity;
+import com.srba.siss.util.Timber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +79,7 @@ public class UserMessageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_usermessage, container, false);
         ButterKnife.bind(this, view);
+        Timber.e("onCreateView");
         initData();
         initView();
         return view;

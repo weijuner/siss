@@ -22,7 +22,7 @@ public class LoginModel implements LoginContract.Model {
 
 
     @Override
-    public Observable<String> login(String username,String password) {
+    public Observable<String> login(String username, String password) {
         Gson gson=new Gson();
 
         HashMap<String,String> paramsMap=new HashMap<>();

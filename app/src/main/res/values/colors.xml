@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="mainColor">#349fb8</color>
+    <color name="mainColor">#349fb9</color>
+    <color name="mainColor_select">#0c8eb9</color>
     <color name="secondColor">#cbdc4e</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="bg_fragment">#f6f7f8</color>
+    <color name="house_h">#cc4f45</color>
+    <color name="house_n">#ff6356</color>
+    <color name="gray_strok">#dadada</color>
+    <color name="transparent">#88000000</color>
+
     <color name="gray">#666667</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>

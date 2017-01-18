@@ -5,7 +5,7 @@ import com.srba.siss.base.BaseModel;
 import com.srba.siss.base.BasePresenter;
 import com.srba.siss.base.BaseView;
 import com.srba.siss.bean.HouseResource;
-import com.srba.siss.bean.HouseResult;
+import com.srba.siss.bean.result.HouseResult;
 
 import java.util.List;
 
@@ -25,7 +25,6 @@ import rx.Observable;
 public interface HouseContract {
 
     interface View extends BaseView {
-        void startMainActivity();
         void updateRecyclerView(List<HouseResource> houses);
         void updateFailure();
     }

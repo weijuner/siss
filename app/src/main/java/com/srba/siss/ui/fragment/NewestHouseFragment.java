@@ -1,24 +1,21 @@
 package com.srba.siss.ui.fragment;
 
+import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.srba.siss.R;
-import com.srba.siss.adapter.MyAdapter;
 import com.srba.siss.adapter.NewestHouseAdapter;
 import com.srba.siss.base.BaseMvpFragment;
 import com.srba.siss.bean.HouseResource;
 import com.srba.siss.mvp.houseresource.HouseContract;
 import com.srba.siss.mvp.houseresource.HousePresenter;
 import com.srba.siss.util.Timber;
+import com.srba.siss.widget.ItemDivider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,8 +68,10 @@ public class NewestHouseFragment extends BaseMvpFragment<HousePresenter> impleme
             savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_newesthouse, null);
         ButterKnife.bind(this, view);
-        initView();
+        Timber.e("onCreateView");
         initData();
+        initView();
+
         return view;
     }
 
@@ -85,8 +84,8 @@ public class NewestHouseFragment extends BaseMvpFragment<HousePresenter> impleme
      * 初始化数据
      */
     private void initData() {
-        mAdapter = new NewestHouseAdapter(datas);
-        rlv_newesthouse.setAdapter(mAdapter);
+        mAdapter = new NewestHouseAdapter(getActivity(),datas);
+
     }
 
     private void initView() {
@@ -97,7 +96,9 @@ public class NewestHouseFragment extends BaseMvpFragment<HousePresenter> impleme
         // 设置布局管理器
 
         rlv_newesthouse.setLayoutManager(layoutManager);
-
+        //添加装饰类
+        rlv_newesthouse.addItemDecoration(new ItemDivider(getActivity(), R.drawable.divider_rvitem));
+        rlv_newesthouse.setAdapter(mAdapter);
         initRefresh();
         rlv_newesthouse.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -115,10 +116,9 @@ public class NewestHouseFragment extends BaseMvpFragment<HousePresenter> impleme
         // 为BGARefreshLayout 设置代理
         mRefreshLayout.setDelegate(this);
         // 设置下拉刷新和上拉加载更多的风格     参数1：应用程序上下文，参数2：是否具有上拉加载更多功能
-        BGARefreshViewHolder refreshViewHolder = new BGANormalRefreshViewHolder(getActivity(), true);
+        BGARefreshViewHolder refreshViewHolder = new BGANormalRefreshViewHolder(getActivity(), false);
         // 设置下拉刷新和上拉加载更多的风格
         mRefreshLayout.setRefreshViewHolder(refreshViewHolder);
-
 
         // 为了增加下拉刷新头部和加载更多的通用性，提供了以下可选配置选项  -------------START
         // 设置正在加载更多时不显示加载更多控件
@@ -151,10 +151,7 @@ public class NewestHouseFragment extends BaseMvpFragment<HousePresenter> impleme
         return new HousePresenter(this);
     }
 
-    @Override
-    public void startMainActivity() {
 
-    }
 
     @Override
     public void updateRecyclerView(List<HouseResource> houses) {

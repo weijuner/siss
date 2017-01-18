@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.srba.siss.R;
+import com.srba.siss.util.Timber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,7 @@ import butterknife.OnClick;
  * 修改原因以及修改内容:
  */
 public class BusinessFragment extends Fragment {
+    private View mContentView;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -80,10 +82,41 @@ public class BusinessFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_business, container, false);
-        ButterKnife.bind(this, view);
-        initView();
-        return view;
+        Timber.e("onCreateView");
+        /**
+         * 防止Fragment多次切换时调用onCreateView重新加载View
+         */
+        if (null == mContentView)
+        {
+            mContentView = inflater.inflate(R.layout.fragment_business, container, false);
+            ButterKnife.bind(this, mContentView);
+            initView();
+
+            /**
+             * 为了保证一开始加载Fragment的时候判断是否需要加载数据
+             */
+            if (getUserVisibleHint())
+            {
+                Timber.e("数据加载");
+                //todo:数据加载
+            }
+        } else {
+            /**
+             * 缓存的rootView需要判断是否已经被加过parent，
+             * 如果有parent需要从parent删除，要不然会发生这个rootview已经有parent的错误。
+             */
+            ViewGroup parent = (ViewGroup) mContentView.getParent();
+            if (parent != null)
+            {
+                parent.removeView(mContentView);
+            }
+            if (getUserVisibleHint())
+            {
+                Timber.e("数据加载下面");
+                //todo:数据加载
+            }
+        }
+        return mContentView;
     }
 
     /**

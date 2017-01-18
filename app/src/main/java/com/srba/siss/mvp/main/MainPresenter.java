@@ -29,20 +29,16 @@ public class MainPresenter extends MainContract.Presenter {
     @Override
     public void switchNavigation(int id) {
         switch (id) {
-            case R.id.graiv_home:
-            case R.id.gratv_home:
+            case R.id.ll_home:
                 mView.switch2HomePage();
                 break;
-            case R.id.graiv_business:
-            case R.id.gratv_business:
+            case R.id.ll_business:
                 mView.switch2Business();
                 break;
-            case R.id.graiv_message:
-            case R.id.gratv_message:
+            case R.id.ll_message:
                 mView.switch2Message();
                 break;
-            case R.id.graiv_me:
-            case R.id.gratv_me:
+            case R.id.ll_me:
                 mView.switch2Me();
                 break;
         }

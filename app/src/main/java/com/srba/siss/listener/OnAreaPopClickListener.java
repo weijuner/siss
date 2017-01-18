@@ -4,7 +4,7 @@ package com.srba.siss.listener;
  * 作者:  曾维俊
  * 版本:  1.0
  * 日期:  2016/11/23 17:31
- * 描述:  筛选菜单处理完成接口
+ * 描述:  区域选择点击监听
  * 修改历史:
  * 日期         	修改人        		版本        	      描述
  * -----------------------------------------------------------------------------------
@@ -14,9 +14,6 @@ package com.srba.siss.listener;
 public interface OnAreaPopClickListener {
     /**
      * 过滤器处理完成
-     * @param position
-     * @param positionTitle
-     * @param urlValue
      */
-    void onFilterDone(int position, String positionTitle, String urlValue);
+    void onPopWindowClick(String region, String regionDetail);
 }

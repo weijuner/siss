@@ -13,18 +13,19 @@ package com.srba.siss.bean;
  */
 public class HouseResource {
 
+
     /**
      * id : 1
      * asId : 1
-     * houseCardNo : 2
      * houseInfoNo : 3
+     * contractNo : null
      * neighbourhood : 小区
      * region : 区域
      * regionDetail : 片区
-     * building : 楼盘
-     * buildingNo : 8
      * floor : 3
-     * houseType : 户型
+     * room : null
+     * hall : null
+     * year : null
      * area : 面积
      * price : 0
      * averagePrice : 0
@@ -34,16 +35,16 @@ public class HouseResource {
 
     private int id;
     private int asId;
-    private String houseCardNo;
     private String houseInfoNo;
+    private String contractNo;
     private String neighbourhood;
     private String region;
     private String regionDetail;
-    private String building;
-    private int buildingNo;
     private int floor;
-    private String houseType;
-    private String area;
+    private int room;
+    private int hall;
+    private int year;
+    private double area;
     private double price;
     private double averagePrice;
     private String decoration;
@@ -65,20 +66,20 @@ public class HouseResource {
         this.asId = asId;
     }
 
-    public String getHouseCardNo() {
-        return houseCardNo;
-    }
-
-    public void setHouseCardNo(String houseCardNo) {
-        this.houseCardNo = houseCardNo;
-    }
-
     public String getHouseInfoNo() {
         return houseInfoNo;
     }
 
     public void setHouseInfoNo(String houseInfoNo) {
         this.houseInfoNo = houseInfoNo;
+    }
+
+    public String getContractNo() {
+        return contractNo;
+    }
+
+    public void setContractNo(String contractNo) {
+        this.contractNo = contractNo;
     }
 
     public String getNeighbourhood() {
@@ -105,22 +106,6 @@ public class HouseResource {
         this.regionDetail = regionDetail;
     }
 
-    public String getBuilding() {
-        return building;
-    }
-
-    public void setBuilding(String building) {
-        this.building = building;
-    }
-
-    public int getBuildingNo() {
-        return buildingNo;
-    }
-
-    public void setBuildingNo(int buildingNo) {
-        this.buildingNo = buildingNo;
-    }
-
     public int getFloor() {
         return floor;
     }
@@ -129,19 +114,35 @@ public class HouseResource {
         this.floor = floor;
     }
 
-    public String getHouseType() {
-        return houseType;
+    public int getRoom() {
+        return room;
     }
 
-    public void setHouseType(String houseType) {
-        this.houseType = houseType;
+    public void setRoom(int room) {
+        this.room = room;
     }
 
-    public String getArea() {
+    public int getHall() {
+        return hall;
+    }
+
+    public void setHall(int hall) {
+        this.hall = hall;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public double getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(double area) {
         this.area = area;
     }
 

@@ -1,172 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
-    android:fitsSystemWindows="false"
-    >
-
-    <ImageView
-        android:id="@+id/scrolling_header"
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:background="@mipmap/mainbg"
-        android:scaleType="centerCrop"
-        android:visibility="gone"/>
-
-    <LinearLayout
-        android:id="@+id/edit_search"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/colorInitFloatBackground"
-        android:visibility="gone"
-        app:layout_behavior="@string/header_float_behavior">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp"
-            android:text="搜索关键字"
-            android:textColor="#90000000"/>
-    </LinearLayout>
+    android:background="@color/bg_fragment"
+    android:fitsSystemWindows="false">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:contentScrim="#30469b"
+            android:layout_height="wrap_content"
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|enterAlwaysCollapsed|exitUntilCollapsed">
-            <ImageView
-                app:layout_collapseMode="parallax"
-                android:layout_width="match_parent"
-                android:layout_height="350px"
-                android:background="@mipmap/mainbg"
-                android:scaleType="centerCrop"/>
+
             <LinearLayout
-                android:layout_gravity="bottom"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
                 android:orientation="vertical">
-                <EditText
-                    android:id="@+id/et_search"
-                    android:editable="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="20dp"
-                    android:background="@drawable/bg_main_et"
-                    android:text="搜索需求或房源"
-                    android:drawableLeft="@drawable/search"
-                    android:textColor="#90000000"/>
 
                 <LinearLayout
-                    android:layout_gravity="bottom"
-                    android:layout_marginTop="15dp"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="384px"
+                    android:gravity="bottom"
+                    android:background="@mipmap/home_bg"
+                    android:orientation="vertical">
+                    <EditText
+                        android:textSize="44px"
+                        android:drawablePadding="20px"
+                        android:paddingLeft="20px"
+                        android:layout_marginBottom="44px"
+                        android:id="@+id/et_search"
+                        android:layout_width="888px"
+                        android:layout_height="104px"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/bg_main_et"
+                        android:drawableLeft="@drawable/search"
+                        android:editable="false"
+                        android:text="搜索需求或房源"
+                        android:textColor="#90000000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginBottom="44px"
+                    android:gravity="center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:layout_width="match_parent"
+                    android:layout_height="216px"
+                    android:layout_marginTop="44px"
+                    android:orientation="horizontal">
+
                     <LinearLayout
-                        android:id="@+id/ll_searchhouse"
                         android:gravity="center"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
+                        android:id="@+id/ll_searchhouse"
+                        android:background="@drawable/bg_searchhouse_selector"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent">
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_gravity="center_horizontal"
-                            android:layout_width="100px"
-                            android:layout_height="100px"
-                            android:src="@drawable/home_icon_ershoufang_slt"
-                            app:civ_border_width="0dp"
-                            app:civ_border_color="#FF000000"/>
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:text="找房源"
+                        android:layout_height="120px"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/home_house"
+                            />
+                        <TextView
+                            android:layout_marginLeft="10px"
+                            android:textColor="@color/white"
+                            android:textSize="40px"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="找房源" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:layout_marginLeft="56px"
                         android:id="@+id/ll_buyerres"
                         android:gravity="center"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
+                        android:background="@drawable/bg_client_selector"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent">
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_gravity="center_horizontal"
-                            android:layout_width="100px"
-                            android:layout_height="100px"
-                            android:src="@drawable/home_icon_ershoufang_slt"
-                            app:civ_border_width="0dp"
-                            app:civ_border_color="#FF000000"/>
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:text="找客源"
+                        android:layout_height="120px"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/home_client"
+                            />
+
+                        <TextView
+                            android:layout_marginLeft="10px"
+                            android:textColor="@color/white"
+                            android:textSize="40px"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="找客源" />
                     </LinearLayout>
+
                     <LinearLayout
+                        android:layout_marginLeft="56px"
                         android:id="@+id/ll_cooperation"
                         android:gravity="center"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
+                        android:background="@drawable/bg_cooperation_selector"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent">
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_gravity="center_horizontal"
-                            android:layout_width="100px"
-                            android:layout_height="100px"
-                            android:src="@drawable/home_icon_ershoufang_slt"
-                            app:civ_border_width="0dp"
-                            app:civ_border_color="#FF000000"/>
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:text="找合作"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
+                        android:layout_height="120px"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        >
 
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/home_cooperation"
+                            />
+
+                        <TextView
+                            android:layout_marginLeft="10px"
+                            android:textColor="@color/white"
+                            android:textSize="40px"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="找合作" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
         </android.support.design.widget.CollapsingToolbarLayout>
 
         <android.support.design.widget.TabLayout
+            android:background="@color/white"
             android:id="@+id/tab"
-            app:tabGravity="fill"
-            app:tabMode="fixed"
-            app:tabIndicatorColor="@color/mainColor"
-            app:tabSelectedTextColor="@color/mainColor"
-            app:tabTextColor="@color/secondColor"
-            app:tabIndicatorHeight="4dp"
-            app:tabPadding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/mainColor"
+            app:tabIndicatorHeight="8px"
+            app:tabMode="fixed"
+            app:tabPadding="45px"
+            app:tabSelectedTextColor="@color/mainColor"
+            app:tabTextColor="@color/black" />
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ccc"
-        android:visibility="gone"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_behavior="@string/header_scrolling_behavior"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </android.support.design.widget.CoordinatorLayout>

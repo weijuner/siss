@@ -75,13 +75,21 @@
             android:name=".ui.activity.AddBuyerResActivity"/>
         <activity
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name=".ui.activity.ManageBuyerResActivity"/>
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".ui.activity.SearchActivity"/>
         <activity
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".ui.activity.BuyerResourceActivity"/>
         <activity
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:label="@string/label_BuyerManagerDetailActivity"
             android:name=".ui.activity.BuyerManagerDetailActivity"/>
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:label="@string/label_RecommendBuyerActivity"
+            android:name=".ui.activity.RecommendBuyerActivity"/>
         <activity
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".ui.activity.CooperationActivity"/>

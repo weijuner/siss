@@ -1,13 +1,16 @@
 package com.srba.siss.base;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.support.annotation.LayoutRes;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.srba.siss.R;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import butterknife.ButterKnife;
@@ -67,29 +70,26 @@ public class BaseActivity extends AutoLayoutActivity {
 
     }
 
-    public void toastShow(int resId) {
+    public void showToast(int resId) {
         Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
     }
 
-    public void toastShow(String resId) {
+    public void showToast(String resId) {
         Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
     }
 
-    public ProgressDialog progressDialog;
+    public Dialog  progressDialog;
 
-    public ProgressDialog showProgressDialog() {
-        progressDialog = new ProgressDialog(mActivity);
-        progressDialog.setMessage("加载中");
+    public Dialog  showProgressDialog() {
+        progressDialog = new Dialog(mActivity, R.style.progress_dialog);
+        progressDialog.setContentView(R.layout.dialog_loading);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        TextView msg = (TextView) progressDialog.findViewById(R.id.id_tv_loadingmsg);
+        msg.setText("正在登录...");
         progressDialog.show();
         return progressDialog;
     }
 
-    public ProgressDialog showProgressDialog(CharSequence message) {
-        progressDialog = new ProgressDialog(mActivity);
-        progressDialog.setMessage(message);
-        progressDialog.show();
-        return progressDialog;
-    }
 
     public void dismissProgressDialog() {
         if (progressDialog != null && progressDialog.isShowing()) {

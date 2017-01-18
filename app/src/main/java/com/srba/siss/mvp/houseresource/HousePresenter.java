@@ -1,9 +1,7 @@
 package com.srba.siss.mvp.houseresource;
 
 
-import com.srba.siss.bean.HouseResult;
-import com.srba.siss.mvp.login.LoginContract;
-import com.srba.siss.mvp.login.LoginModel;
+import com.srba.siss.bean.result.HouseResult;
 import com.srba.siss.util.Timber;
 
 import rx.Subscriber;

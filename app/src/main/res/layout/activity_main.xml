@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -13,19 +13,20 @@
 
     </android.support.v4.view.ViewPager>
 
-<!--    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/tab_bg_line"/>-->
+    <!--    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/tab_bg_line"/>-->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/bg"
+        android:layout_height="144px"
+        android:background="@color/white"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/ll_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -34,23 +35,16 @@
 
             <com.srba.siss.view.GradientIconView
                 android:id="@+id/graiv_home"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                app:bottom_icon="@mipmap/tab1_normal"
-                app:top_icon="@mipmap/tab1_selected"/>
+                android:layout_width="64px"
+                android:layout_height="64px"
+                app:bottom_icon="@mipmap/tab_home_n"
+                app:top_icon="@mipmap/tab_home_h" />
 
-            <com.srba.siss.view.GradientTextView
-                android:id="@+id/gratv_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:bottom_text_color="@color/tab_text_gray"
-                app:text="@string/str_homepage"
-                app:text_size="12sp"
-                app:top_text_color="@color/tab_bg_green"/>
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_business"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -59,65 +53,50 @@
 
             <com.srba.siss.view.GradientIconView
                 android:id="@+id/graiv_business"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                app:bottom_icon="@mipmap/tab2_normal"
-                app:top_icon="@mipmap/tab2_selected"/>
+                android:layout_width="64px"
+                android:layout_height="64px"
+                app:bottom_icon="@mipmap/tab_management_n"
+                app:top_icon="@mipmap/tab_management_h" />
 
-            <com.srba.siss.view.GradientTextView
-                android:id="@+id/gratv_business"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:bottom_text_color="@color/tab_text_gray"
-                app:text="@string/str_businesspage"
-                app:text_size="12sp"
-                app:top_text_color="@color/tab_bg_green"/>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            >
+            android:gravity="center">
+
             <ImageButton
                 android:id="@+id/imbtn_add"
-                android:background="@mipmap/add_tab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+                android:layout_width="128px"
+                android:layout_height="96px"
+                android:background="@drawable/bg_tab_add" />
         </LinearLayout>
+
         <cn.bingoogolapple.badgeview.BGABadgeLinearLayout
             android:id="@+id/ll_message"
-            app:badge_horizontalMargin="10dp"
-            app:badge_dragable="true"
-            app:badge_isResumeTravel="true"
-            app:badge_gravity="rightTop"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:badge_dragable="true"
+            app:badge_gravity="rightTop"
+            app:badge_horizontalMargin="10dp"
+            app:badge_isResumeTravel="true">
 
             <com.srba.siss.view.GradientIconView
                 android:id="@+id/graiv_message"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                app:bottom_icon="@mipmap/tab3_normal"
-                app:top_icon="@mipmap/tab3_selected"/>
-
-            <com.srba.siss.view.GradientTextView
-                android:id="@+id/gratv_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:bottom_text_color="@color/tab_text_gray"
-                app:text="@string/str_messagepage"
-                app:text_size="12sp"
-                app:top_text_color="@color/tab_bg_green"/>
+                android:layout_width="64px"
+                android:layout_height="64px"
+                app:bottom_icon="@mipmap/tab_news_n"
+                app:top_icon="@mipmap/tab_news_h" />
 
         </cn.bingoogolapple.badgeview.BGABadgeLinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_me"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -126,19 +105,10 @@
 
             <com.srba.siss.view.GradientIconView
                 android:id="@+id/graiv_me"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                app:bottom_icon="@mipmap/tab4_normal"
-                app:top_icon="@mipmap/tab4_selected"/>
-
-            <com.srba.siss.view.GradientTextView
-                android:id="@+id/gratv_me"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:bottom_text_color="@color/tab_text_gray"
-                app:text="@string/str_mepage"
-                app:text_size="12sp"
-                app:top_text_color="@color/tab_bg_green"/>
+                android:layout_width="64px"
+                android:layout_height="64px"
+                app:bottom_icon="@mipmap/tab_mine_n"
+                app:top_icon="@mipmap/tab_mine_h" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

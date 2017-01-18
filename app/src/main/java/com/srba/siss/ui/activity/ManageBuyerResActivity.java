@@ -37,10 +37,7 @@ public class ManageBuyerResActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wel);
-
-        startActivity(new Intent(ManageBuyerResActivity.this, LoginActivity.class));
-        finish();
+        setContentView(R.layout.activity_managebuyerres);
 
     }
 }

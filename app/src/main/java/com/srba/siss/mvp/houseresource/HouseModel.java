@@ -2,8 +2,7 @@ package com.srba.siss.mvp.houseresource;
 
 import com.google.gson.Gson;
 import com.srba.siss.api.ApiEngine;
-import com.srba.siss.bean.HouseResult;
-import com.srba.siss.mvp.login.LoginContract;
+import com.srba.siss.bean.result.HouseResult;
 import com.srba.siss.rx.RxSchedulers;
 
 import java.util.HashMap;
@@ -30,8 +29,7 @@ public class HouseModel implements HouseContract.Model {
 
         HashMap<String,String> paramsMap=new HashMap<>();
 
-        paramsMap.put("houseCardNo","1");
-        paramsMap.put("houseInfoNo","2");
+    //    paramsMap.put("houseInfoNo","2");
 
         String strEntity = gson.toJson(paramsMap);
 

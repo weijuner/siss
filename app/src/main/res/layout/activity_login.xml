@@ -1,106 +1,117 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_fragment"
     android:orientation="vertical">
 
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100px"
-        android:id="@+id/profile_image"
-        android:layout_width="150px"
-        android:layout_height="150px"
-        android:src="@mipmap/logo"
-        app:civ_border_width="0dp"
-        app:civ_border_color="#FF000000"/>
-
-    <LinearLayout
-        android:layout_marginTop="100px"
-        android:layout_marginLeft="20px"
-        android:layout_marginRight="20px"
-        android:orientation="horizontal"
+    <RelativeLayout
+        android:background="@color/mainColor"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="用户名:"
+        android:layout_height="548px">
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="144px"
+            android:id="@+id/ic_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"/>
+            android:src="@mipmap/ic_logo"/>
+        <TextView
+            android:gravity="center"
+            android:background="@drawable/tv_logo_selector"
+            android:layout_marginTop="88px"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/ic_logo"
+            android:textColor="@color/white"
+            android:textSize="35px"
+            android:text="-交易通经纪人版-"
+            android:layout_width="376px"
+            android:layout_height="72px" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginLeft="72px"
+        android:layout_marginRight="72px"
+        android:gravity="center"
+        android:layout_marginTop="88px"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ic_logo"
+        android:textColor="#272626"
+        android:textSize="49px"
+        android:text="请使用深圳市房地产中介行业协会综合服务系统（SISS）账户登录！"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_marginTop="100px"
+        android:layout_marginLeft="32px"
+        android:layout_marginRight="32px"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <EditText
+            android:text="2163B484D3A9430EBE6326D9D6E51B88"
+            android:paddingLeft="56px"
+            android:background="@drawable/et_username_bg"
+            android:textColor="@color/black"
+            android:textSize="49px"
             android:id="@+id/et_username"
-            android:text="32102719890312391X"
+            android:hint="星级服务牌号/身份证号码"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="10px"
-        android:layout_marginLeft="20px"
-        android:layout_marginRight="20px"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="密    码:"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"/>
+            android:layout_height="136px"/>
 
         <EditText
-            android:id="@+id/et_password"
             android:text="123456"
+            android:layout_marginTop="-2dp"
+            android:paddingLeft="56px"
+            android:background="@drawable/et_password_bg"
+            android:textColor="@color/black"
+            android:textSize="49px"
+            android:id="@+id/et_password"
+            android:hint="密码"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="136px"/>
     </LinearLayout>
-
-    <CheckBox
-        android:layout_margin="20px"
-        android:text="已阅知并同意《深圳房地产中介协会综合服务系统使用协议》"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkBox"/>
 
     <Button
         android:layout_marginTop="80px"
-        android:layout_marginLeft="20px"
-        android:layout_marginRight="20px"
+        android:layout_marginLeft="32px"
+        android:layout_marginRight="32px"
+        android:textSize="56px"
         android:text="登录"
-        android:background="@drawable/btn_login_selector"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_login"/>
+
     <RelativeLayout
-        android:layout_marginTop="40px"
-        android:layout_marginLeft="20px"
-        android:layout_marginRight="20px"
+        android:layout_marginTop="80px"
+        android:layout_marginLeft="160px"
+        android:layout_marginRight="160px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:textColor="@color/colorPrimary"
-            android:text="忘记密码"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:text="没有账号前往siss"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/tv_desc"
+            android:textSize="35px"
+            android:text="点击“登录”即表示您同意并遵守"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/tv_signin"
-            android:layout_toStartOf="@+id/tv_signin"/>
-
+           />
         <TextView
-            android:id="@+id/tv_signin"
-            android:textColor="@color/colorPrimary"
-            android:text="立即注册"
+            android:layout_marginTop="20px"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tv_desc"
+            android:textSize="35px"
+            android:textColor="#0068b7"
+            android:text="《深圳市房地产中介协会交易通使用协议》"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
+            />
     </RelativeLayout>
+
+
 </LinearLayout>

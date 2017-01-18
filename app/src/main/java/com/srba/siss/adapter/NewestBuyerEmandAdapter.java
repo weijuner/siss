@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.srba.siss.R;
+import com.srba.siss.bean.BuyerEmand;
 import com.srba.siss.bean.HouseResource;
 
 import java.util.List;
@@ -25,11 +26,11 @@ import java.util.List;
 
 public class NewestBuyerEmandAdapter extends RecyclerView.Adapter<NewestBuyerEmandAdapter.ViewHolder> {
     // 数据集
-    private List<HouseResource> mHouses;
+    private List<BuyerEmand> datas;
 
-    public NewestBuyerEmandAdapter(List<HouseResource> houses) {
+    public NewestBuyerEmandAdapter(List<BuyerEmand> datas) {
         super();
-        mHouses = houses;
+        this.datas = datas;
     }
 
     @Override
@@ -37,7 +38,7 @@ public class NewestBuyerEmandAdapter extends RecyclerView.Adapter<NewestBuyerEma
 
         // 创建一个View，简单起见直接使用系统提供的布局，就是一个TextView
 
-        View view = View.inflate(viewGroup.getContext(), R.layout.item_newesthouse, null);
+        View view = View.inflate(viewGroup.getContext(), R.layout.item_newestbuyer, null);
 
         // 创建一个ViewHolder
 
@@ -52,36 +53,39 @@ public class NewestBuyerEmandAdapter extends RecyclerView.Adapter<NewestBuyerEma
 
         // 绑定数据到ViewHolder上
 
-        viewHolder.tv_neighbourhood.setText(mHouses.get(i).getNeighbourhood());
-        viewHolder.tv_houseType.setText(mHouses.get(i).getRoom()+"室"+mHouses.get(i).getHall()+"厅");
-        viewHolder.tv_price.setText(mHouses.get(i).getPrice()+"万");
-        viewHolder.tv_area.setText(mHouses.get(i).getArea()+"m²");
-        viewHolder.tv_region.setText(mHouses.get(i).getRegion()+"");
+        viewHolder.tv_region.setText(datas.get(i).getRegion());
+        viewHolder.tv_regionDetail.setText(datas.get(i).getRegionDetail());
+        viewHolder.tv_name.setText(datas.get(i).getName());
+        viewHolder.tv_neighbourhood.setText(datas.get(i).getNeighbourhood());
+        viewHolder.tv_area.setText(datas.get(i).getMinArea()+"-"+datas.get(i).getMaxArea()+"m²,");
+        viewHolder.tv_price.setText(datas.get(i).getMinPrice()+"-"+datas.get(i).getMaxPrice()+"万");
 
     }
 
     @Override
     public int getItemCount() {
 
-        return mHouses.size();
+        return datas.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView tv_region;
-        public TextView tv_houseType;
-        public TextView tv_neighbourhood;
-        public TextView tv_price;
+        public TextView tv_regionDetail;
+        public TextView tv_name;
         public TextView tv_area;
+        public TextView tv_price;
+        public TextView tv_neighbourhood;
 
         public ViewHolder(View itemView) {
 
             super(itemView);
 
             tv_region = (TextView) itemView.findViewById(R.id.tv_region);
-            tv_houseType = (TextView) itemView.findViewById(R.id.tv_houseType);
-            tv_price = (TextView) itemView.findViewById(R.id.tv_price);
+            tv_regionDetail = (TextView) itemView.findViewById(R.id.tv_regionDetail);
+            tv_name = (TextView) itemView.findViewById(R.id.tv_name);
             tv_area = (TextView) itemView.findViewById(R.id.tv_area);
+            tv_price = (TextView) itemView.findViewById(R.id.tv_price);
             tv_neighbourhood = (TextView) itemView.findViewById(R.id.tv_neighbourhood);
         }
 

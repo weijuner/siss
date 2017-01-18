@@ -1,10 +1,12 @@
 package com.srba.siss.bean.result;
 
+import java.util.List;
+
 /**
  * 作者:  曾维俊
  * 版本:  1.0
  * 日期:  2017/1/12
- * 描述:
+ * 描述:  返回结果模板
  * 修改历史:
  * 日期         	修改人        		版本        	      描述
  * -----------------------------------------------------------------------------------
@@ -17,7 +19,7 @@ public class BaseResult<T> {
 
     private int result;
     private String msg;
-    private T data;
+    private List<T> data;
 
     public int getResult() {
         return result;
@@ -35,11 +37,11 @@ public class BaseResult<T> {
         this.msg = msg;
     }
 
-    public T getData() {
+    public List<T> getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public void setData(List<T> data) {
         this.data = data;
     }
 

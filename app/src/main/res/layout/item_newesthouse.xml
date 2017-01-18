@@ -1,87 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="400px">
+    android:layout_height="197px">
     <Button
+        android:textSize="32px"
+        android:layout_marginRight="32px"
+        android:textColor="@drawable/text_main_selector"
+        android:background="@drawable/bg_btn_recommend"
         android:text="推荐客户"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="176px"
+        android:layout_height="80px"
         android:id="@+id/btn_recommend"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
     <LinearLayout
+        android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/btn_recommend"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:layout_marginLeft="32px"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginTop="40px"
+            android:layout_marginBottom="30px">
             <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_neighbourhood"
+                android:id="@+id/tv_region"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="小区"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
+                android:text="福田"
+                android:textColor="@color/black"
+                android:textSize="40px"
                 android:gravity="center_vertical"/>
             <TextView
-                android:id="@+id/tv_houseType"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="40px"
+                android:gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/tv_regionDetail"
                 android:layout_marginLeft="1dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="户型"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
+                android:text="沙头"
+                android:textColor="@color/black"
+                android:textSize="40px"
                 android:gravity="center_vertical"/>
             <TextView
-                android:id="@+id/tv_price"
-                android:layout_weight="1"
+                android:id="@+id/tv_neighbourhood"
+                android:layout_marginLeft="32px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="价格"
+                android:text="新洲花园"
                 android:textColor="@color/gray"
-                android:textSize="20sp"
+                android:textSize="35px"
                 android:gravity="center_vertical"/>
         </LinearLayout>
         <LinearLayout
+            android:layout_marginBottom="40px"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginLeft="32px">
             <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="300万"
+                android:textColor="@color/mainColor"
+                android:textSize="35px"
+                android:gravity="center_vertical"/>
+            <View
+                android:layout_marginLeft="32px"
+                android:background="@color/gray"
+                android:layout_width="1dp"
+                android:layout_height="36px"/>
+            <TextView
+                android:layout_marginLeft="32px"
                 android:id="@+id/tv_area"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="面积"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
+                android:text="60m²"
+                android:textColor="@color/mainColor"
+                android:textSize="35px"
                 android:gravity="center_vertical"/>
+            <View
+                android:layout_marginLeft="32px"
+                android:background="@color/gray"
+                android:layout_width="1dp"
+                android:layout_height="36px"/>
             <TextView
-                android:id="@+id/tv_floor"
-                android:layout_weight="1"
+                android:layout_marginLeft="32px"
+                android:id="@+id/tv_houseType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="楼层区间"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                android:gravity="center_vertical"/>
-            <TextView
-                android:id="@+id/tv_direction"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="朝向"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
+                android:text="2室1厅"
+                android:textColor="@color/mainColor"
+                android:textSize="35px"
                 android:gravity="center_vertical"/>
         </LinearLayout>
     </LinearLayout>

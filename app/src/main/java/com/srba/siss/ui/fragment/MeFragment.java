@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.srba.siss.R;
+import com.srba.siss.util.Timber;
 import com.srba.siss.widget.pullzoomview.PullToZoomScrollViewEx;
 
 import butterknife.BindView;
@@ -67,6 +68,7 @@ public class MeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_me, container, false);
         ButterKnife.bind(this, view);
+        Timber.e("onCreateView");
         loadViewForCode();
         initView();
         return view;

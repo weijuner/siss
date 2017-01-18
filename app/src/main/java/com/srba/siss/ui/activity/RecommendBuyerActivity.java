@@ -15,7 +15,6 @@
  */
 package com.srba.siss.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.srba.siss.R;
@@ -37,10 +36,7 @@ public class RecommendBuyerActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wel);
-
-        startActivity(new Intent(RecommendBuyerActivity.this, LoginActivity.class));
-        finish();
+        setContentView(R.layout.activity_recommendbuyer);
 
     }
 }

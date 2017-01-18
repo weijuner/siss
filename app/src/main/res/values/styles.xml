@@ -25,4 +25,18 @@
         <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
         <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
     </style>
+    <!--   淡入淡出动画-->
+    <style name="AlphaAnim" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/alpha_to_one</item>
+        <item name="android:windowExitAnimation">@anim/alpha_to_zero</item>
+    </style>
+    <style name="progress_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
 </resources>

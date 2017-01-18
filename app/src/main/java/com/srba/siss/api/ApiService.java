@@ -1,10 +1,11 @@
 package com.srba.siss.api;
 
-import com.srba.siss.bean.HouseResult;
+import com.srba.siss.bean.BuyerEmand;
+import com.srba.siss.bean.result.BaseResult;
+import com.srba.siss.bean.result.HouseResult;
 
 
 import okhttp3.RequestBody;
-import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 import rx.Observable;
@@ -22,6 +23,7 @@ import rx.Observable;
  */
 public interface ApiService {
 
+  //  String HOST = "http://10.168.8.196:8080/srba_siss_main/";
     String HOST = "http://10.168.8.196:8080/";
 
 
@@ -39,4 +41,20 @@ public interface ApiService {
      */
     @POST("srba_siss_app/appHouseResouse/getAppHouseResource")
     Observable<HouseResult> getHouseInfo(@Body RequestBody model);
+
+
+    /**
+     * 插入线下需求
+     * @return  Observable被观察者
+     */
+    @POST("srba_siss_app/appBuyerEmandOffline/insertBuyerEmandOffline")
+    Observable<String> insertBuyerEmandOffline(@Body RequestBody model);
+
+    /**
+     * 获取房源信息
+     * @return  Observable被观察者
+     */
+    @POST("srba_siss_app/appBuyerEmand/getAppBuyerEmand")
+    Observable<BaseResult<BuyerEmand>> getAppBuyerEmand(@Body RequestBody model);
+
 }

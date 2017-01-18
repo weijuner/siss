@@ -2,6 +2,8 @@
     <string name="app_name">交易通</string>
     <string name="label_WelActivity">欢迎activity</string>
     <string name="label_MainActivity">主activity</string>
+    <string name="label_BuyerManagerDetailActivity">客源管理activity</string>
+    <string name="label_RecommendBuyerActivity">推荐客户activity</string>
     <string name="label_LoginActivity">登录activity</string>
     <string name="str_homepage">首页</string>
     <string name="str_businesspage">业务</string>

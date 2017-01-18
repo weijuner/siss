@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.srba.siss.R;
+import com.srba.siss.util.Timber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,10 @@ import butterknife.OnClick;
  * 修改原因以及修改内容:
  */
 public class MessageFragment extends Fragment {
-
+    /**
+     * 内容view
+     */
+    private View mContentView;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     @BindView(R.id.viewpager)
@@ -101,10 +105,26 @@ public class MessageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_messge, container, false);
-        ButterKnife.bind(this, view);
-        initView();
-        return view;
+        Timber.e("onCreateView");
+        if (null == mContentView)
+        {
+            mContentView = inflater.inflate(R.layout.fragment_messge, container, false);
+            ButterKnife.bind(this, mContentView);
+            initView();
+            if (getUserVisibleHint())
+            {
+                //todo:数据加载
+                Timber.e("数据加载");
+            }
+        } else {
+            ViewGroup parent = (ViewGroup) mContentView.getParent();
+            if (parent != null)
+            {
+                parent.removeView(mContentView);
+            }
+            Timber.e("数据加载下面");
+        }
+        return mContentView;
     }
 
     private void initView() {

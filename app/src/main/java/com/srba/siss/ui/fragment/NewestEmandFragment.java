@@ -8,9 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.srba.siss.R;
+import com.srba.siss.adapter.NewestBuyerEmandAdapter;
 import com.srba.siss.adapter.NewestHouseAdapter;
 import com.srba.siss.base.BaseMvpFragment;
+import com.srba.siss.bean.BuyerEmand;
 import com.srba.siss.bean.HouseResource;
+import com.srba.siss.mvp.buyeremand.BuyerEmandContract;
+import com.srba.siss.mvp.buyeremand.BuyerEmandPresenter;
 import com.srba.siss.mvp.houseresource.HouseContract;
 import com.srba.siss.mvp.houseresource.HousePresenter;
 import com.srba.siss.util.Timber;
@@ -37,18 +41,18 @@ import cn.bingoogolapple.refreshlayout.BGARefreshViewHolder;
  * 2016/12/21       曾维俊               1.0                   1.0
  * 修改原因以及修改内容:
  */
-public class NewestEmandFragment extends BaseMvpFragment<HousePresenter> implements HouseContract.View, BGARefreshLayout.BGARefreshLayoutDelegate,HomeFragment.AppBarChangeListner {
+public class NewestEmandFragment extends BaseMvpFragment<BuyerEmandPresenter> implements BuyerEmandContract.View, BGARefreshLayout.BGARefreshLayoutDelegate,HomeFragment.AppBarChangeListner {
 
     private int mPage;
-    @BindView(R.id.rlv_newesthouse)
-    RecyclerView rlv_newesthouse;
+    @BindView(R.id.rlv_newestemand)
+    RecyclerView rlv_newestemand;
     @BindView(R.id.rl_refresh)
     BGARefreshLayout mRefreshLayout;
 
     public static boolean isCanRefresh = true;
 
-    private NewestHouseAdapter mAdapter;
-    private List<HouseResource> datas = new ArrayList<>();
+    private NewestBuyerEmandAdapter mAdapter;
+    private List<BuyerEmand> datas;
     public static NewestEmandFragment newInstance() {
 
 
@@ -65,8 +69,9 @@ public class NewestEmandFragment extends BaseMvpFragment<HousePresenter> impleme
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_newesthouse, null);
+        View view = inflater.inflate(R.layout.fragment_newesemand, null);
         ButterKnife.bind(this, view);
+        Timber.e("onCreateView");
         initData();
         initView();
 
@@ -82,7 +87,8 @@ public class NewestEmandFragment extends BaseMvpFragment<HousePresenter> impleme
      * 初始化数据
      */
     private void initData() {
-        mAdapter = new NewestHouseAdapter(datas);
+        datas = new ArrayList<>();
+        mAdapter = new NewestBuyerEmandAdapter(datas);
 
     }
 
@@ -93,12 +99,12 @@ public class NewestEmandFragment extends BaseMvpFragment<HousePresenter> impleme
 
         // 设置布局管理器
 
-        rlv_newesthouse.setLayoutManager(layoutManager);
+        rlv_newestemand.setLayoutManager(layoutManager);
         //添加装饰类
-        rlv_newesthouse.addItemDecoration(new ItemDivider(getActivity(), R.drawable.divider_rvitem));
-        rlv_newesthouse.setAdapter(mAdapter);
+        rlv_newestemand.addItemDecoration(new ItemDivider(getActivity(), R.drawable.divider_rvitem));
+        rlv_newestemand.setAdapter(mAdapter);
         initRefresh();
-        rlv_newesthouse.setOnScrollListener(new RecyclerView.OnScrollListener() {
+        rlv_newestemand.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int state) {
                 super.onScrollStateChanged(recyclerView, state);
@@ -114,7 +120,7 @@ public class NewestEmandFragment extends BaseMvpFragment<HousePresenter> impleme
         // 为BGARefreshLayout 设置代理
         mRefreshLayout.setDelegate(this);
         // 设置下拉刷新和上拉加载更多的风格     参数1：应用程序上下文，参数2：是否具有上拉加载更多功能
-        BGARefreshViewHolder refreshViewHolder = new BGANormalRefreshViewHolder(getActivity(), true);
+        BGARefreshViewHolder refreshViewHolder = new BGANormalRefreshViewHolder(getActivity(), false);
         // 设置下拉刷新和上拉加载更多的风格
         mRefreshLayout.setRefreshViewHolder(refreshViewHolder);
 
@@ -146,20 +152,17 @@ public class NewestEmandFragment extends BaseMvpFragment<HousePresenter> impleme
     }
 
     @Override
-    protected HousePresenter onCreatePresenter() {
-        return new HousePresenter(this);
+    protected BuyerEmandPresenter onCreatePresenter() {
+        return new BuyerEmandPresenter(this);
     }
 
-    @Override
-    public void startMainActivity() {
 
-    }
 
     @Override
-    public void updateRecyclerView(List<HouseResource> houses) {
+    public void updateRecyclerView(List<BuyerEmand> modes) {
         mRefreshLayout.endRefreshing();
         datas.clear();
-        datas.addAll(houses);
+        datas.addAll(modes);
         mAdapter.notifyDataSetChanged();
     }
 
@@ -170,7 +173,7 @@ public class NewestEmandFragment extends BaseMvpFragment<HousePresenter> impleme
 
     @Override
     public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
-        mPresenter.getHouseInfo();
+        mPresenter.getAppBuyerEmand();
     }
 
     @Override
